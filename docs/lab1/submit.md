@@ -8,8 +8,8 @@
 
 ## 提交要求
 
-&emsp;&emsp;&emsp;&emsp;将实验报告转换为pdf格式，以“<font color=orange>**学号_姓名_网络安全_实验1.pdf**</font>”命名并提交。
+&emsp;&emsp;&emsp;&emsp;将实验报告转换为pdf格式和代码一起压缩为zip格式，以“<font color=orange>**学号_姓名_密码学基础_实验1.pdf**</font>”命名并提交。
 
 
 !!! warning "作业提交 :calendar:"
-    &emsp;&emsp;作业提交<font color = red>**Deadline**</font>：<font color = purple>**下周一24点之前**</font>。
+    &emsp;&emsp;作业提交<font color = red>**Deadline**</font>：<font color = purple>**下次上课前提交**</font>。
