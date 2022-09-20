@@ -9,14 +9,14 @@
 &emsp;&emsp;如发现指导书编写有误或有宝贵的意见或建议，请私信老师。若指导书有更新，将第一时间在课程群内推送通知。
 
 !!! info "说明 :sparkles:"
-    &emsp;&emsp;部分实验（Hash长度扩展攻击和MD5碰撞攻击）来源于SEED实验室。此项目旨在开发一系列面向计算机和网络安全教育的动手实验 (SEED实验) 。20年来SEED项目开发了近40个实验，涉及系统安全、网络安全、Web安全、软件安全、移动安全、密码学等各个方面，涵盖了计算机和网络安全的绝大多数基础知识。这些实验完全开源供大家免费使用(网址：https://seedsecuritylabs.org/)。
+    &emsp;&emsp;部分实验（Hash长度扩展攻击和MD5碰撞攻击）来源于SEED实验室。20年来SEED项目开发了近40个实验，涉及系统安全、网络安全、Web安全、软件安全、移动安全、密码学等各个方面，涵盖了计算机和网络安全的绝大多数基础知识。这些实验完全开源供大家免费使用(网址：https://seedsecuritylabs.org/)，有兴趣的同学可以深入研究。
 
 
 # 其他
 
 ## 1. 参考资料及实验包下载
 
-&emsp;&emsp;[点击下载参考资料和实验包](https://gitee.com/hitsz-cslab/cryptography-labs/tree/master/stupkt)
+&emsp;&emsp;实验课程PPT，实验报告模板，代码框架等可以从如下路径下载。[点击下载参考资料和实验包](https://gitee.com/hitsz-cslab/cryptography-labs/tree/master/stupkt)
 
 ## 2. 作业提交方式
 
