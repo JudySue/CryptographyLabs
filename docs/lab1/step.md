@@ -13,10 +13,10 @@
 
 ## 解密
 
-##### Step1.完成逆字节代换函数 void deSubBytes(int array[4][4])，利用已经给出的函数getNumFromS1Box()；
-##### Step2.实现右移函数void rightLoop4int(int array[4], int step)和行移位函数void deShiftRows(int array[4][4])；
-##### Step3.实现逆列混淆函数void deMixColumns(int array[4][4])，利用已经给出的函数GFMul(int n, int s)；
-##### Step4.完成void deAes(char *c, int clen, char *key)
+#### Step1.完成逆字节代换函数 void deSubBytes(int array[4][4])，利用已经给出的函数getNumFromS1Box()；
+#### Step2.实现右移函数void rightLoop4int(int array[4], int step)和行移位函数void deShiftRows(int array[4][4])；
+#### Step3.实现逆列混淆函数void deMixColumns(int array[4][4])，利用已经给出的函数GFMul(int n, int s)；
+#### Step4.完成void deAes(char *c, int clen, char *key)
 
 ## 结果参照
 &emsp;&emsp;可以参照下图对比密钥扩展和加密结果是否正确。

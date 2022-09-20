@@ -716,10 +716,10 @@
 <h4 id="step7void-extendkeychar-key">Step7.实现密钥扩展函数void extendKey(char *key)；</h4>
 <h4 id="step8aesdeaes">Step8.读懂aes函数为完成deaes函数做准备。</h4>
 <h2 id="_3">解密</h2>
-<h5 id="step1-void-desubbytesint-array44getnumfroms1box">Step1.完成逆字节代换函数 void deSubBytes(int array[4][4])，利用已经给出的函数getNumFromS1Box()；</h5>
-<h5 id="step2void-rightloop4intint-array4-int-stepvoid-deshiftrowsint-array44">Step2.实现右移函数void rightLoop4int(int array[4], int step)和行移位函数void deShiftRows(int array[4][4])；</h5>
-<h5 id="step3void-demixcolumnsint-array44gfmulint-n-int-s">Step3.实现逆列混淆函数void deMixColumns(int array[4][4])，利用已经给出的函数GFMul(int n, int s)；</h5>
-<h5 id="step4void-deaeschar-c-int-clen-char-key">Step4.完成void deAes(char *c, int clen, char *key)</h5>
+<h4 id="step1-void-desubbytesint-array44getnumfroms1box">Step1.完成逆字节代换函数 void deSubBytes(int array[4][4])，利用已经给出的函数getNumFromS1Box()；</h4>
+<h4 id="step2void-rightloop4intint-array4-int-stepvoid-deshiftrowsint-array44">Step2.实现右移函数void rightLoop4int(int array[4], int step)和行移位函数void deShiftRows(int array[4][4])；</h4>
+<h4 id="step3void-demixcolumnsint-array44gfmulint-n-int-s">Step3.实现逆列混淆函数void deMixColumns(int array[4][4])，利用已经给出的函数GFMul(int n, int s)；</h4>
+<h4 id="step4void-deaeschar-c-int-clen-char-key">Step4.完成void deAes(char *c, int clen, char *key)</h4>
 <h2 id="_4">结果参照</h2>
 <p>&emsp;&emsp;可以参照下图对比密钥扩展和加密结果是否正确。</p>
 <p><center><img src="../assets/4-1.png" width = 800></center>
