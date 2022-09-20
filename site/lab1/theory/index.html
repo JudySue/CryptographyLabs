@@ -763,9 +763,9 @@
 <div class="admonition info">
 <p class="admonition-title">说明 <img alt="✨" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2728.svg" title=":sparkles:" /></p>
 </div>
-<p>&emsp;&emsp;P代表明文，Pi代码第i个明文分组，C代表密文，Ci代表第i个密文分组，K代表密钥，IV代表初始化向量。</p>
+<p>&emsp;&emsp;P代表明文，Pi代表第i个明文分组，C代表密文，Ci代表第i个密文分组，K代表密钥，IV代表初始化向量。</p>
 <h2 id="1-aes">1. AES密码算法</h2>
-<p>&emsp;&emsp;AES密码算法主要又四种运算，分别为字节替换，行移位，列混淆和轮密钥加；前面三种运算只处理明文，最后一个运算轮密钥加才和密钥进行运算，因为要解密所以这四种运算都是可逆的。10轮的AES密码算法（AES128）过程如下图所示。</p>
+<p>&emsp;&emsp;AES密码算法主要有四种运算，分别为字节替换，行移位，列混淆和轮密钥加；前面三种运算只处理明文，最后一个运算轮密钥加才和密钥进行运算，因为要解密所以这四种运算都是可逆的。10轮的AES密码算法（AES128）过程如下图所示。</p>
 <p><center><img src="../assets/2-1.png" width = 800></center>
 <center>图2-1 AES 10轮 加密解密运算</center></p>
 <h3 id="11">1.1 明文和密钥初始化</h3>
@@ -785,7 +785,7 @@
 <p><center><img src="../assets/2-6.png" width = 500></center>
 <center>图2-6 逆行移位</center></p>
 <h3 id="14">1.4 列混淆和逆列混淆</h3>
-<p>&emsp;&emsp;列混淆的目的是以列为单位，使得输出的每1个字节和输入的4个字节都有关。具体运算就是左乘一个矩阵，其中的乘法运算为GF(28)上的乘法，模不可约多项式m(x)的乘法运算。列混淆盒逆列混淆运算中的左乘矩阵互为逆。如下图所示。</p>
+<p>&emsp;&emsp;列混淆的目的是以列为单位，使得输出的每1个字节和输入的4个字节都有关。具体运算就是左乘一个矩阵，其中的乘法运算为GF(28)上的乘法，模不可约多项式m(x)的乘法运算。列混淆和逆列混淆运算中的左乘矩阵互为逆。如下图所示。</p>
 <p><center><img src="../assets/2-7.png" width = 500></center>
 <center>图2-7 列混淆和逆列混淆</center></p>
 <p><center><img src="../assets/2-8.png" width = 500></center>
@@ -798,7 +798,7 @@
 <p>&emsp;&emsp;由4个字（16个字节）的种子密钥，生成一个44个字的一维线性数组。初始化加上10次轮密钥加，每次用4个字。</p>
 <p><center><img src="../assets/2-10.png" width = 500></center>
 <center>图2-10 密钥扩展</center></p>
-<p>&emsp;&emsp;具体扩展规则如下，初始密钥根据种子密钥案列存储；接下来根据mod 4的结果有两种处理方式，如下图所示。</p>
+<p>&emsp;&emsp;具体扩展规则如下，初始密钥根据种子密钥按列存储；接下来根据mod 4的结果有两种处理方式，如下图所示。</p>
 <p><center><img src="../assets/2-11.png" width = 500></center>
 <center>图2-11 密钥扩展算法</center></p>
 <p><center><img src="../assets/2-12.png" width = 500></center>
@@ -813,7 +813,6 @@
 <p>&emsp;&emsp;示例1：0123456789abc共13个数据，再填充3个才够16个，PKCS7填充时会在后面填充3个3。填充后为0123456789abc333</p>
 <p>&emsp;&emsp; 示例2： 0123456789abcef0，长度刚好是16的整数倍，那就会再增加一个分组为ffffffffffffffff</p>
 <h2 id="3">3. 工作模式</h2>
-<p>&emsp;&emsp; 我们通过下图看以下Https访问web时的证书应用场景，Https服务器通过访问CA申请并获得一个证书，管理员通过这个证书来验证这个证书就可以了。</p>
 <h3 id="31-electronic-codebook-bookecb16">3.1 【了解】电码本模式（Electronic Codebook Book,简称ECB）：将明文按16个字节分组，每组分别加密后再拼接在一起就是加密后的明文。其缺点是如果分组的明文相同，那么对应的密文也将相同。因此常用于比较短的数据加密，比如密钥的加密。</h3>
 <p><center><img src="../assets/3-1.png" width = 800></center></p>
 <div class="admonition info">

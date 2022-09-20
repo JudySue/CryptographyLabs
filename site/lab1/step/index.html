@@ -403,11 +403,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    加密
+  <a href="#1" class="md-nav__link">
+    1.加密
   </a>
   
-    <nav class="md-nav" aria-label="加密">
+    <nav class="md-nav" aria-label="1.加密">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -472,11 +472,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    解密
+  <a href="#2" class="md-nav__link">
+    2.解密
   </a>
   
-    <nav class="md-nav" aria-label="解密">
+    <nav class="md-nav" aria-label="2.解密">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -513,8 +513,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    结果参照
+  <a href="#3" class="md-nav__link">
+    3.结果参照
   </a>
   
 </li>
@@ -575,11 +575,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    加密
+  <a href="#1" class="md-nav__link">
+    1.加密
   </a>
   
-    <nav class="md-nav" aria-label="加密">
+    <nav class="md-nav" aria-label="1.加密">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -644,11 +644,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    解密
+  <a href="#2" class="md-nav__link">
+    2.解密
   </a>
   
-    <nav class="md-nav" aria-label="解密">
+    <nav class="md-nav" aria-label="2.解密">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -685,8 +685,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    结果参照
+  <a href="#3" class="md-nav__link">
+    3.结果参照
   </a>
   
 </li>
@@ -706,7 +706,7 @@
 
 
 <h1 id="_1">实验步骤</h1>
-<h2 id="_2">加密</h2>
+<h2 id="1">1.加密</h2>
 <h4 id="step1-void-converttointarraychar-str-int-pa44">Step1.完成初始化存储函数 void convertToIntArray(char *str, int pa[4][4])，按照列存储；</h4>
 <h4 id="step2-void-subbytesint-array44getnumfromsbox">Step2.完成字节代换函数 void subBytes(int array[4][4])，利用已经给出的函数getNumFromSBox()；</h4>
 <h4 id="step3void-leftloop4intint-array4-int-stepvoid-shiftrowsint-array44">Step3.实现左移函数void leftLoop4int(int array[4], int step)和行移位函数void shiftRows(int array[4][4])；</h4>
@@ -715,12 +715,12 @@
 <h4 id="step6tint-tint-num-int-round">Step6.实现密钥扩展中的T函数int T(int num, int round)；</h4>
 <h4 id="step7void-extendkeychar-key">Step7.实现密钥扩展函数void extendKey(char *key)；</h4>
 <h4 id="step8aesdeaes">Step8.读懂aes函数为完成deaes函数做准备。</h4>
-<h2 id="_3">解密</h2>
+<h2 id="2">2.解密</h2>
 <h4 id="step1-void-desubbytesint-array44getnumfroms1box">Step1.完成逆字节代换函数 void deSubBytes(int array[4][4])，利用已经给出的函数getNumFromS1Box()；</h4>
 <h4 id="step2void-rightloop4intint-array4-int-stepvoid-deshiftrowsint-array44">Step2.实现右移函数void rightLoop4int(int array[4], int step)和行移位函数void deShiftRows(int array[4][4])；</h4>
 <h4 id="step3void-demixcolumnsint-array44gfmulint-n-int-s">Step3.实现逆列混淆函数void deMixColumns(int array[4][4])，利用已经给出的函数GFMul(int n, int s)；</h4>
 <h4 id="step4void-deaeschar-c-int-clen-char-key">Step4.完成void deAes(char *c, int clen, char *key)</h4>
-<h2 id="_4">结果参照</h2>
+<h2 id="3">3.结果参照</h2>
 <p>&emsp;&emsp;可以参照下图对比密钥扩展和加密结果是否正确。</p>
 <p><center><img src="../assets/4-1.png" width = 800></center>
 <center>图4-1 参考结果</center></p>

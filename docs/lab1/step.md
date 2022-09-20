@@ -1,6 +1,6 @@
 # 实验步骤
 
-## 加密
+## 1.加密
 
 #### Step1.完成初始化存储函数 void convertToIntArray(char *str, int pa[4][4])，按照列存储；
 #### Step2.完成字节代换函数 void subBytes(int array[4][4])，利用已经给出的函数getNumFromSBox()；
@@ -11,14 +11,14 @@
 #### Step7.实现密钥扩展函数void extendKey(char *key)；
 #### Step8.读懂aes函数为完成deaes函数做准备。
 
-## 解密
+## 2.解密
 
 #### Step1.完成逆字节代换函数 void deSubBytes(int array[4][4])，利用已经给出的函数getNumFromS1Box()；
 #### Step2.实现右移函数void rightLoop4int(int array[4], int step)和行移位函数void deShiftRows(int array[4][4])；
 #### Step3.实现逆列混淆函数void deMixColumns(int array[4][4])，利用已经给出的函数GFMul(int n, int s)；
 #### Step4.完成void deAes(char *c, int clen, char *key)
 
-## 结果参照
+## 3.结果参照
 &emsp;&emsp;可以参照下图对比密钥扩展和加密结果是否正确。
 
 <center><img src="../assets/4-1.png" width = 800></center>

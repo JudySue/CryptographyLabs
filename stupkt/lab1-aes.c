@@ -219,7 +219,7 @@ int mergeArrayToInt(int array[4])
 }
 
 /**
- * 字节代换
+ * 字节替换
  */
 void subBytes(int array[4][4])
 {
@@ -227,7 +227,7 @@ void subBytes(int array[4][4])
 }
 
 /**
- * 逆字节代换
+ * 逆字节替换
  */
 void deSubBytes(int array[4][4])
 {
@@ -292,7 +292,7 @@ void addRoundKey(int array[4][4], int round)
 }
 
 /**
- * 密钥扩展中的T函数（字循环，字节代换，异或）
+ * 密钥扩展中的T函数（字循环，字节替换，异或）
  */
 int T(int num, int round)
 {
@@ -381,7 +381,7 @@ void aes(char *p, int plen, char *key)
         for(i = 1; i < 10; i++)
         {
 
-            subBytes(pArray);//字节代换
+            subBytes(pArray);//字节替换
 
             shiftRows(pArray);//行移位
 
@@ -391,7 +391,7 @@ void aes(char *p, int plen, char *key)
 
         }
 
-        subBytes(pArray);//字节代换
+        subBytes(pArray);//字节替换
 
         shiftRows(pArray);//行移位
 
