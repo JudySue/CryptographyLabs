@@ -1,17 +1,26 @@
 # 实验步骤
 
+## 加密
 
-## CBC模式加密
+### Step1.完成初始化存储函数 void convertToIntArray(char *str, int pa[4][4])，按照列存储；
+### Step2.完成字节代换函数 void subBytes(int array[4][4])，利用已经给出的函数getNumFromSBox()；
+### Step3.实现左移函数void leftLoop4int(int array[4], int step)和行移位函数void shiftRows(int array[4][4])；
+### Step4.实验列混淆函数void mixColumns(int array[4][4])，利用已经给出的函数GFMul(int n, int s)；
+### Step5.实现轮密钥加函数void addRoundKey(int array[4][4], int round)；
+### Step6.实现密钥扩展中的T函数int T(int num, int round)；
+### Step7.实验密钥扩展函数void extendKey(char *key)；
+### Step8.读懂aes函数为完成deaes函数做准备。
 
-### Step1.计算明文长度并进行填充，要求每个分组大小为128位（16个字节），如果不满足需要用PKCS7Padding方式填充；
-### Step2.如果是第一个分组，明文跟IV异或后进行加密；
-### Step3.如果不是第一个分组，明文跟前一组的密文异或后加密；
-### Step4.重复第三步直至明文分组全部加密完成。
+## 解密
 
-## CBC模式解密
+### Step1.完成逆字节代换函数 void deSubBytes(int array[4][4])，利用已经给出的函数getNumFromS1Box()；
+### Step2.实现右移函数void rightLoop4int(int array[4], int step)和行移位函数void deShiftRows(int array[4][4])；
+### Step3.实验逆列混淆函数void deMixColumns(int array[4][4])，利用已经给出的函数GFMul(int n, int s)；
+### Step4.完成void deAes(char *c, int clen, char *key)
 
-### Step1.将密文进行分组，总长度肯定为16字节的整数倍；
-### Step2.如果是第一个分组，跟IV异或后得到第一组明文；
-### Step3.否则，跟前一组密文异或后得到明文；
-### Step4.如果是最后一个分组，根据最后一个字节去除填充。
+## 结果参照
+&emsp;&emsp;可以参照下图对比密钥扩展和加密结果是否正确。
+
+<center><img src="../assets/4-1.png" width = 800></center>
+<center>表4-1 参考结果</center>
 

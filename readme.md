@@ -4,7 +4,7 @@
 
 - 声明：本课程资料仅限于哈尔滨工业大学（深圳）《密码学基础》（2022秋）课程使用，严禁扩散或用作其他用途。
 
-- 课程主页及指导书地址：[https://hitsz-cslab.gitee.io/cryptography/](https://hitsz-cslab.gitee.io/cryptography/)
+- 课程主页及指导书地址：[https://hitsz-cslab.gitee.io/cryptography-labs/](https://hitsz-cslab.gitee.io/cryptography-labs/)
 
 - 学生实验包下载地址：[stupkt目录](https://gitee.com/hitsz-cslab/cryptography-labs/tree/master/stupkt)
 

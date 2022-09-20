@@ -193,71 +193,7 @@
   
     <li class="md-tabs__item">
       <a href="../overview/" class="md-tabs__link md-tabs__link--active">
-        实验1：基于CBC或CTR模式的AES加密算法
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../lab2/overview/" class="md-tabs__link">
-        实验2：RSA公钥加密算法
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../lab3/overview/" class="md-tabs__link">
-        实验3：Hash长度扩展攻击
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../lab4/overview/" class="md-tabs__link">
-        实验4：ElGamal数字签名
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../lab5/overview/" class="md-tabs__link">
-        附加题：MD5碰撞攻击
+        实验1：AES对称密码算法
       </a>
     </li>
   
@@ -388,14 +324,14 @@
       
       
         <label class="md-nav__link" for="__nav_2">
-          实验1：基于CBC或CTR模式的AES加密算法
+          实验1：AES对称密码算法
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="实验1：基于CBC或CTR模式的AES加密算法" data-md-level="1">
+      <nav class="md-nav" aria-label="实验1：AES对称密码算法" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
-          实验1：基于CBC或CTR模式的AES加密算法
+          实验1：AES对称密码算法
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -467,37 +403,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cbc" class="md-nav__link">
-    CBC模式加密
+  <a href="#_2" class="md-nav__link">
+    加密
   </a>
   
-    <nav class="md-nav" aria-label="CBC模式加密">
+    <nav class="md-nav" aria-label="加密">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step112816pkcs7padding" class="md-nav__link">
-    Step1.计算明文长度并进行填充，要求每个分组大小为128位（16个字节），如果不满足需要用PKCS7Padding方式填充；
+  <a href="#step1-void-converttointarraychar-str-int-pa44" class="md-nav__link">
+    Step1.完成初始化存储函数 void convertToIntArray(char *str, int pa[4][4])，按照列存储；
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step2iv" class="md-nav__link">
-    Step2.如果是第一个分组，明文跟IV异或后进行加密；
+  <a href="#step2-void-subbytesint-array44getnumfromsbox" class="md-nav__link">
+    Step2.完成字节代换函数 void subBytes(int array[4][4])，利用已经给出的函数getNumFromSBox()；
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step3" class="md-nav__link">
-    Step3.如果不是第一个分组，明文跟前一组的密文异或后加密；
+  <a href="#step3void-leftloop4intint-array4-int-stepvoid-shiftrowsint-array44" class="md-nav__link">
+    Step3.实现左移函数void leftLoop4int(int array[4], int step)和行移位函数void shiftRows(int array[4][4])；
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step4" class="md-nav__link">
-    Step4.重复第三步直至明文分组全部加密完成。
+  <a href="#step4void-mixcolumnsint-array44gfmulint-n-int-s" class="md-nav__link">
+    Step4.实验列混淆函数void mixColumns(int array[4][4])，利用已经给出的函数GFMul(int n, int s)；
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step5void-addroundkeyint-array44-int-round" class="md-nav__link">
+    Step5.实现轮密钥加函数void addRoundKey(int array[4][4], int round)；
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step6tint-tint-num-int-round" class="md-nav__link">
+    Step6.实现密钥扩展中的T函数int T(int num, int round)；
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step7void-extendkeychar-key" class="md-nav__link">
+    Step7.实验密钥扩展函数void extendKey(char *key)；
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step8aesdeaes" class="md-nav__link">
+    Step8.读懂aes函数为完成deaes函数做准备。
   </a>
   
 </li>
@@ -508,43 +472,50 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cbc_1" class="md-nav__link">
-    CBC模式解密
+  <a href="#_3" class="md-nav__link">
+    解密
   </a>
   
-    <nav class="md-nav" aria-label="CBC模式解密">
+    <nav class="md-nav" aria-label="解密">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step116" class="md-nav__link">
-    Step1.将密文进行分组，总长度肯定为16字节的整数倍；
+  <a href="#step1-void-desubbytesint-array44getnumfroms1box" class="md-nav__link">
+    Step1.完成逆字节代换函数 void deSubBytes(int array[4][4])，利用已经给出的函数getNumFromS1Box()；
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step2iv_1" class="md-nav__link">
-    Step2.如果是第一个分组，跟IV异或后得到第一组明文；
+  <a href="#step2void-rightloop4intint-array4-int-stepvoid-deshiftrowsint-array44" class="md-nav__link">
+    Step2.实现右移函数void rightLoop4int(int array[4], int step)和行移位函数void deShiftRows(int array[4][4])；
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step3_1" class="md-nav__link">
-    Step3.否则，跟前一组密文异或后得到明文；
+  <a href="#step3void-demixcolumnsint-array44gfmulint-n-int-s" class="md-nav__link">
+    Step3.实验逆列混淆函数void deMixColumns(int array[4][4])，利用已经给出的函数GFMul(int n, int s)；
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step4_1" class="md-nav__link">
-    Step4.如果是最后一个分组，根据最后一个字节去除填充。
+  <a href="#step4void-deaeschar-c-int-clen-char-key" class="md-nav__link">
+    Step4.完成void deAes(char *c, int clen, char *key)
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    结果参照
+  </a>
   
 </li>
       
@@ -564,366 +535,6 @@
   
     <li class="md-nav__item">
       <a href="../submit/" class="md-nav__link">
-        验收与提交
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3">
-          实验2：RSA公钥加密算法
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="实验2：RSA公钥加密算法" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          实验2：RSA公钥加密算法
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab2/overview/" class="md-nav__link">
-        实验概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab2/theory/" class="md-nav__link">
-        实验原理
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab2/step/" class="md-nav__link">
-        实验步骤
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab2/submit/" class="md-nav__link">
-        验收与提交
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_4">
-          实验3：Hash长度扩展攻击
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="实验3：Hash长度扩展攻击" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          实验3：Hash长度扩展攻击
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab3/overview/" class="md-nav__link">
-        实验概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab3/theory/" class="md-nav__link">
-        实验原理
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab3/step/" class="md-nav__link">
-        实验步骤
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab3/submit/" class="md-nav__link">
-        验收与提交
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5">
-          实验4：ElGamal数字签名
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="实验4：ElGamal数字签名" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          实验4：ElGamal数字签名
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab4/overview/" class="md-nav__link">
-        实验概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab4/theory/" class="md-nav__link">
-        实验原理
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab4/step/" class="md-nav__link">
-        实验步骤
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab4/submit/" class="md-nav__link">
-        验收与提交
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_6">
-          附加题：MD5碰撞攻击
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="附加题：MD5碰撞攻击" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
-          <span class="md-nav__icon md-icon"></span>
-          附加题：MD5碰撞攻击
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab5/overview/" class="md-nav__link">
-        实验概述
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab5/theory/" class="md-nav__link">
-        实验原理
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab5/step/" class="md-nav__link">
-        实验步骤
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab5/submit/" class="md-nav__link">
         验收与提交
       </a>
     </li>
@@ -964,37 +575,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cbc" class="md-nav__link">
-    CBC模式加密
+  <a href="#_2" class="md-nav__link">
+    加密
   </a>
   
-    <nav class="md-nav" aria-label="CBC模式加密">
+    <nav class="md-nav" aria-label="加密">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step112816pkcs7padding" class="md-nav__link">
-    Step1.计算明文长度并进行填充，要求每个分组大小为128位（16个字节），如果不满足需要用PKCS7Padding方式填充；
+  <a href="#step1-void-converttointarraychar-str-int-pa44" class="md-nav__link">
+    Step1.完成初始化存储函数 void convertToIntArray(char *str, int pa[4][4])，按照列存储；
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step2iv" class="md-nav__link">
-    Step2.如果是第一个分组，明文跟IV异或后进行加密；
+  <a href="#step2-void-subbytesint-array44getnumfromsbox" class="md-nav__link">
+    Step2.完成字节代换函数 void subBytes(int array[4][4])，利用已经给出的函数getNumFromSBox()；
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step3" class="md-nav__link">
-    Step3.如果不是第一个分组，明文跟前一组的密文异或后加密；
+  <a href="#step3void-leftloop4intint-array4-int-stepvoid-shiftrowsint-array44" class="md-nav__link">
+    Step3.实现左移函数void leftLoop4int(int array[4], int step)和行移位函数void shiftRows(int array[4][4])；
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step4" class="md-nav__link">
-    Step4.重复第三步直至明文分组全部加密完成。
+  <a href="#step4void-mixcolumnsint-array44gfmulint-n-int-s" class="md-nav__link">
+    Step4.实验列混淆函数void mixColumns(int array[4][4])，利用已经给出的函数GFMul(int n, int s)；
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step5void-addroundkeyint-array44-int-round" class="md-nav__link">
+    Step5.实现轮密钥加函数void addRoundKey(int array[4][4], int round)；
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step6tint-tint-num-int-round" class="md-nav__link">
+    Step6.实现密钥扩展中的T函数int T(int num, int round)；
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step7void-extendkeychar-key" class="md-nav__link">
+    Step7.实验密钥扩展函数void extendKey(char *key)；
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step8aesdeaes" class="md-nav__link">
+    Step8.读懂aes函数为完成deaes函数做准备。
   </a>
   
 </li>
@@ -1005,43 +644,50 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cbc_1" class="md-nav__link">
-    CBC模式解密
+  <a href="#_3" class="md-nav__link">
+    解密
   </a>
   
-    <nav class="md-nav" aria-label="CBC模式解密">
+    <nav class="md-nav" aria-label="解密">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step116" class="md-nav__link">
-    Step1.将密文进行分组，总长度肯定为16字节的整数倍；
+  <a href="#step1-void-desubbytesint-array44getnumfroms1box" class="md-nav__link">
+    Step1.完成逆字节代换函数 void deSubBytes(int array[4][4])，利用已经给出的函数getNumFromS1Box()；
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step2iv_1" class="md-nav__link">
-    Step2.如果是第一个分组，跟IV异或后得到第一组明文；
+  <a href="#step2void-rightloop4intint-array4-int-stepvoid-deshiftrowsint-array44" class="md-nav__link">
+    Step2.实现右移函数void rightLoop4int(int array[4], int step)和行移位函数void deShiftRows(int array[4][4])；
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step3_1" class="md-nav__link">
-    Step3.否则，跟前一组密文异或后得到明文；
+  <a href="#step3void-demixcolumnsint-array44gfmulint-n-int-s" class="md-nav__link">
+    Step3.实验逆列混淆函数void deMixColumns(int array[4][4])，利用已经给出的函数GFMul(int n, int s)；
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step4_1" class="md-nav__link">
-    Step4.如果是最后一个分组，根据最后一个字节去除填充。
+  <a href="#step4void-deaeschar-c-int-clen-char-key" class="md-nav__link">
+    Step4.完成void deAes(char *c, int clen, char *key)
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    结果参照
+  </a>
   
 </li>
       
@@ -1060,16 +706,24 @@
 
 
 <h1 id="_1">实验步骤</h1>
-<h2 id="cbc">CBC模式加密</h2>
-<h3 id="step112816pkcs7padding">Step1.计算明文长度并进行填充，要求每个分组大小为128位（16个字节），如果不满足需要用PKCS7Padding方式填充；</h3>
-<h3 id="step2iv">Step2.如果是第一个分组，明文跟IV异或后进行加密；</h3>
-<h3 id="step3">Step3.如果不是第一个分组，明文跟前一组的密文异或后加密；</h3>
-<h3 id="step4">Step4.重复第三步直至明文分组全部加密完成。</h3>
-<h2 id="cbc_1">CBC模式解密</h2>
-<h3 id="step116">Step1.将密文进行分组，总长度肯定为16字节的整数倍；</h3>
-<h3 id="step2iv_1">Step2.如果是第一个分组，跟IV异或后得到第一组明文；</h3>
-<h3 id="step3_1">Step3.否则，跟前一组密文异或后得到明文；</h3>
-<h3 id="step4_1">Step4.如果是最后一个分组，根据最后一个字节去除填充。</h3>
+<h2 id="_2">加密</h2>
+<h3 id="step1-void-converttointarraychar-str-int-pa44">Step1.完成初始化存储函数 void convertToIntArray(char *str, int pa[4][4])，按照列存储；</h3>
+<h3 id="step2-void-subbytesint-array44getnumfromsbox">Step2.完成字节代换函数 void subBytes(int array[4][4])，利用已经给出的函数getNumFromSBox()；</h3>
+<h3 id="step3void-leftloop4intint-array4-int-stepvoid-shiftrowsint-array44">Step3.实现左移函数void leftLoop4int(int array[4], int step)和行移位函数void shiftRows(int array[4][4])；</h3>
+<h3 id="step4void-mixcolumnsint-array44gfmulint-n-int-s">Step4.实验列混淆函数void mixColumns(int array[4][4])，利用已经给出的函数GFMul(int n, int s)；</h3>
+<h3 id="step5void-addroundkeyint-array44-int-round">Step5.实现轮密钥加函数void addRoundKey(int array[4][4], int round)；</h3>
+<h3 id="step6tint-tint-num-int-round">Step6.实现密钥扩展中的T函数int T(int num, int round)；</h3>
+<h3 id="step7void-extendkeychar-key">Step7.实验密钥扩展函数void extendKey(char *key)；</h3>
+<h3 id="step8aesdeaes">Step8.读懂aes函数为完成deaes函数做准备。</h3>
+<h2 id="_3">解密</h2>
+<h3 id="step1-void-desubbytesint-array44getnumfroms1box">Step1.完成逆字节代换函数 void deSubBytes(int array[4][4])，利用已经给出的函数getNumFromS1Box()；</h3>
+<h3 id="step2void-rightloop4intint-array4-int-stepvoid-deshiftrowsint-array44">Step2.实现右移函数void rightLoop4int(int array[4], int step)和行移位函数void deShiftRows(int array[4][4])；</h3>
+<h3 id="step3void-demixcolumnsint-array44gfmulint-n-int-s">Step3.实验逆列混淆函数void deMixColumns(int array[4][4])，利用已经给出的函数GFMul(int n, int s)；</h3>
+<h3 id="step4void-deaeschar-c-int-clen-char-key">Step4.完成void deAes(char *c, int clen, char *key)</h3>
+<h2 id="_4">结果参照</h2>
+<p>&emsp;&emsp;可以参照下图对比密钥扩展和加密结果是否正确。</p>
+<p><center><img src="../assets/4-1.png" width = 800></center>
+<center>表4-1 参考结果</center></p>
 
               
             </article>

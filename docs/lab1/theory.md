@@ -1,8 +1,5 @@
 # 实验原理
 
-
-&emsp;&emsp;
-
 !!! info "说明 :sparkles:"
 &emsp;&emsp;P代表明文，Pi代码第i个明文分组，C代表密文，Ci代表第i个密文分组，K代表密钥，IV代表初始化向量。
 
@@ -15,59 +12,59 @@
 
 ### 1.1 明文和密钥初始化
 &emsp;&emsp;AES中的运算都是以字节位单位的，128位的明文可以分为16个字节，与一般的存储方式不同，这里的字节是按列存储的。密钥的初始化也与明文初始化相同，128位的密钥分为16个字节按列存储，如下图所示。
-<center><img src="../assets/2-2.png" width = 800></center>
+<center><img src="../assets/2-2.png" width = 600></center>
 <center>图2-2 明文和密钥初始化</center>
 
 ### 1.2 字节替换和逆字节替换
 
 &emsp;&emsp;本次实验不需要大家生成S盒，字节替换和逆字节替换的运算，只需要查找S盒和逆S盒中对应的元素作为输出即可。查找的方法为字节的高4位作为行号，低4位作为列号，对应S盒和逆S盒的元素则为需要替换的内容。以95<->2a为例(16进制表示),如下图所示。
 
-<center><img src="../assets/2-3.png" width = 800></center>
+<center><img src="../assets/2-3.png" width = 600></center>
 <center>图2-3 字节替换</center>
 
-<center><img src="../assets/2-4.png" width = 800></center>
+<center><img src="../assets/2-4.png" width = 600></center>
 <center>图2-4 逆字节替换</center>
 
 ### 1.3 行移位和逆行移位
 
 &emsp;&emsp;行移位是每行按字节移位（提醒大家注意，AES算法中的处理都是以字节为单位的），第1行保持不变，第2行循环左移1个字节，第3行循环左移2个字节，第4行循环左移3个字节，完成行移位后每一列的四个字节被扩散到4个不同的列。逆行移位则与之相反，第1行保持不变，第2行循环右移1个字节，第3行循环右移2个字节，第4行循环右移3个字节。如下图所示。
 
-<center><img src="../assets/2-5.png" width = 800></center>
+<center><img src="../assets/2-5.png" width = 500></center>
 <center>图2-5 行移位</center>
 
-<center><img src="../assets/2-6.png" width = 800></center>
+<center><img src="../assets/2-6.png" width = 500></center>
 <center>图2-6 逆行移位</center>
 
 ### 1.4 列混淆和逆列混淆
 
 &emsp;&emsp;列混淆的目的是以列为单位，使得输出的每1个字节和输入的4个字节都有关。具体运算就是左乘一个矩阵，其中的乘法运算为GF(28)上的乘法，模不可约多项式m(x)的乘法运算。列混淆盒逆列混淆运算中的左乘矩阵互为逆。如下图所示。
 
-<center><img src="../assets/2-7.png" width = 800></center>
+<center><img src="../assets/2-7.png" width = 500></center>
 <center>图2-7 列混淆和逆列混淆</center>
 
-<center><img src="../assets/2-8.png" width = 800></center>
+<center><img src="../assets/2-8.png" width = 500></center>
 <center>图2-8 列混淆矩阵运算</center>
 
 ### 1.5 轮密钥加
 
 &emsp;&emsp;按字节将处理后的明文分组与当前轮次的密钥进行异或。它的逆也就是再异或一次轮密钥。
 
-<center><img src="../assets/2-9.png" width = 800></center>
+<center><img src="../assets/2-9.png" width = 500></center>
 <center>图2-9 轮密钥加</center>
 
 ### 1.5 密钥扩展
 
 &emsp;&emsp;由4个字（16个字节）的种子密钥，生成一个44个字的一维线性数组。初始化加上10次轮密钥加，每次用4个字。
 
-<center><img src="../assets/2-10.png" width = 800></center>
+<center><img src="../assets/2-10.png" width = 500></center>
 <center>图2-10 密钥扩展</center>
 
 &emsp;&emsp;具体扩展规则如下，初始密钥根据种子密钥案列存储；接下来根据mod 4的结果有两种处理方式，如下图所示。
 
-<center><img src="../assets/2-11.png" width = 800></center>
+<center><img src="../assets/2-11.png" width = 500></center>
 <center>图2-11 密钥扩展算法</center>
 
-<center><img src="../assets/2-12.png" width = 800></center>
+<center><img src="../assets/2-12.png" width = 500></center>
 <center>图2-12 密钥扩展伪码</center>
 
 ## 2. 填充方式
@@ -97,16 +94,14 @@
 <center><img src="../assets/3-1.png" width = 800></center>
 
 !!! info "说明 :sparkles:"
-&emsp;&emsp;最后一个分组：是否需要填充：是
-&emsp;&emsp;是否需要初始化向量：否
+&emsp;&emsp;最后一个分组是否需要填充：是; 是否需要初始化向量：否
 
 ### 3.2 【本次实验需要完成】密文分组链接模式（Cipher Block Chaining, 简称CBC）：每一组明文先与初始化向量或者上一组的密文进行异或，得到的结果再与密钥进行加密。具体如下图所示。
 
 <center><img src="../assets/3-2.png" width = 800></center>
 
 !!! info "说明 :sparkles:"
-&emsp;&emsp;最后一个分组是否需要填充：是
-&emsp;&emsp;是否需要初始化向量：是
+&emsp;&emsp;最后一个分组是否需要填充：是; 是否需要初始化向量：是
 
 ### 3.3 【了解】密文反馈模式（Cipher FeedBack, 简称CFB）：在上面两个工作模式ECB和CBC中，整个数据分组需要在接收完之后才能进行加密。但是在一些网络应用中，需要即刻把一个终端输入的字符传给主机。这样上面的两种工作模式就不能满足。在CFB模式中，数据可以在比分组（8bytes）小的单元里进行加密。其工作方式类似流密码。
 &emsp;&emsp;CFB模式中，假设传输的最小单元是s（下图以8bits为例）位，分组大小为b位（AES分组的大小是128bits）。首先将初始化向量IV放到b位的移位寄存器中，加密函数输出最左边的s位，与明文分片P1进行异或，得到的密文C1并发送，然后把移位寄存器左移s位，把C1填入寄存器最右边的s位开始第二个明文分片的加密。具体如下图所示。
@@ -114,8 +109,7 @@
 <center><img src="../assets/3-3.png" width = 800></center>
 
 !!! info "说明 :sparkles:"
-&emsp;&emsp;最后一个分组是否需要填充：否，类似流密码，不分组，因此不需要填充。
-&emsp;&emsp;是否需要初始化向量：是
+&emsp;&emsp;最后一个分组是否需要填充：否，类似流密码，不分组，因此不需要填充;  是否需要初始化向量：是
 
 ### 3.4 【了解】输出反馈模式（Output FeedBack, 简称OFB）：OFB模式的结构跟上面CFB的模式很相似，不同的是它用加密函数的输出来填充移位寄存器，而CFB是用密文单元来填充移位寄存器。而且它是对这个分组来运算的。
 
@@ -131,6 +125,5 @@
 <center><img src="../assets/3-5.png" width = 800></center>
 
 !!! info "说明 :sparkles:"
-&emsp;&emsp;最后一个分组是否需要填充：否,如果最后分组只有u位，u < b(b为分组长度)，那么会将最后输出最左边的u位与最后分组的u位做异或运算，其余的b-u位舍弃。
-&emsp;&emsp;是否需要初始化向量：是
+&emsp;&emsp;最后一个分组是否需要填充：否,如果最后分组只有u位，u < b(b为分组长度)，那么会将最后输出最左边的u位与最后分组的u位做异或运算，其余的b-u位舍弃。是否需要初始化向量：是
 
