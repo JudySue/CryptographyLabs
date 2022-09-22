@@ -235,7 +235,7 @@ void deSubBytes(int array[4][4])
 }
 
 /**
- * 将数组中的元素循环左移step位
+ * 将数组中的元素循环左移step个
  */
 void leftLoop4int(int array[4], int step)
 {
@@ -243,7 +243,7 @@ void leftLoop4int(int array[4], int step)
 }
 
 /**
- * 把4个元素的数组循环右移step位
+ * 把4个元素的数组循环右移step个
  */
 void rightLoop4int(int array[4], int step)
 {
