@@ -727,14 +727,15 @@
 </div>
 <h4 id="12-ed">1.2 求e和d</h4>
 <p>欧几里德（Euclid）算法是数论中的一个基本技术，是求两个正整数的最大公因子的简化过程。而扩展的Euclid算法不仅可求出两个正整数的最大公因子，而且当两个正整数互素时，还可求出其中一个数关于另一个数的乘法逆元。两个算法的伪代码如下：</p>
-<p>Euclid（f, d）
+<pre><code>Euclid（f, d）
   1. X←f; Y←d；
   2. if Y=0 then return X=gcd(f,d)；
   3. R=X mod Y；
   4. X=Y；
   5. Y=R；
-  6. goto 2。</p>
-<p>Extended Euclid(f, d) （设 f &gt;d） 
+  6. goto 2。
+
+Extended Euclid(f, d) （设 f &gt;d） 
   1. (X1,X2,X3)←(1,0,f);(Y1,Y2,Y3)←(0,1,d);
   2.  if Y3=0 then return  X3=gcd(f, d)；no inverse;
   3. if  Y3=1 then return  Y3=gcd(f, d)；Y2=d-1 mod f;
@@ -742,12 +743,13 @@
   5. (T1,T2,T3)←(X1-QY1,X2-QY2,X3-QY3);
   6. (X1,X2,X3)←(Y1,Y2,Y3);
   7. (Y1,Y2,Y3)←(T1,T2,T3);
-  8. goto 2。</p>
+  8. goto 2。
+</code></pre>
 <p>e可以位随机生成的一个小于  φ(n) 的整数，利用欧几里德判断 e 是否符合的互质要求，否则在令 <script type="math/tex">e += 1</script> 继续寻找。
   利用扩展的欧几里得求 d。</p>
 <h3 id="2">2 加密和解密</h3>
 <p>因为RSA算法的加密也解密运算都用到幂运算和取模运算，根据取模运算的性质，我们可以使用快速幂取模的方式来进行快速且不溢出的运算。</p>
-<p>//m为底数，e为指数，n
+<pre><code>  //m为底数，e为指数，n
   quick_pow(m,e,n) 
     ans = 1
     while e:
@@ -755,7 +757,8 @@
             ans = (ans * m) %p
         m = m * m % p
         e &gt;&gt;= 1
-    return ans</p>
+    return ans
+</code></pre>
 
               
             </article>
