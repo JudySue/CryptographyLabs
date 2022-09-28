@@ -490,13 +490,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    实验环境
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -592,13 +585,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    实验环境
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -633,23 +619,12 @@
 </li>
 </ol>
 <h2 id="_2">实验内容</h2>
-<p>本次实验需要大家完成 RSA 密码算法，。学有余力的同学还可以尝试下 CBC-AES128 密码算法，具体实验过程中可以尝试分如下几个步骤完成。</p>
+<p>本次实验需要大家完成 RSA 密码算法，推荐大家用Java实现，如果选取1024位或者以上的也可以使用python实现。</p>
 <ol>
-<li>初始化明文块（按列存储）</li>
-<li>完成字节替换、行移位、列混淆、轮密钥加等函数</li>
-<li>完成逆字节替换、逆行移位、逆列混淆等函数</li>
-<li>密钥扩展，将 4 个字（16 字节）的密钥扩展为 44 个字（一个字四个字节）</li>
-<li>完成 AES128 的加密、解密函数</li>
+<li>随机选取满足条件的𝑝、𝑞和𝑑，要求𝑝和𝑞的二进制长度不小于14bit，也就是p和q小于10000.</li>
+<li>以附件的明文lab2-Plaintext.txt作为待加密的明文。</li>
+<li>用公钥加密，私钥解密。 将 𝑝, 𝑞, 𝑛,𝑒, 𝑑,𝜙(𝑛) 的值以及加密后的密文、解密后的明文输出到文件或屏幕。</li>
 </ol>
-<h2 id="_3">实验环境</h2>
-<p>本次实验提供了一个 C 语言的代码框架，供大家参考，大家也可以用 Python、Java 等语言自己实现。</p>
-<div class="admonition info">
-<p class="admonition-title">说明 <img alt="✨" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2728.svg" title=":sparkles:" /></p>
-<ol>
-<li>不允许直接库里面的接口，需要自己实现加密和解密的程序。</li>
-<li>学有余力的同学可以尝试 CBC 工作模式的实现。</li>
-</ol>
-</div>
 
               
             </article>
