@@ -713,7 +713,7 @@
 </div>
 <h3 id="1">1 密钥生成</h3>
 <ol>
-<li>选择大素数 <script type="math/tex">p</script> 和 <script type="math/tex">q</script> （如果用C语言不配置gmp可以选择四位数的十进制，其他语言要求至少128位的大素数，最好体会下1024位的速度）</li>
+<li>选择大素数 <script type="math/tex">p</script> 和 <script type="math/tex">q</script> （如果用C语言不配置gmp可以选择四位数的十进制（随机数范围可以为10000），其他语言要求至少128位的大素数，最好体会下1024位的速度）</li>
 <li>计算 <script type="math/tex">n = p * q</script>，计算<script type="math/tex">ｎ</script>的欧拉函数 <script type="math/tex">φ(n) = (p - 1) * (q - 1)</script>
 </li>
 <li>选择一个与<script type="math/tex">φ(n)</script>互质的整数<script type="math/tex">e</script>
