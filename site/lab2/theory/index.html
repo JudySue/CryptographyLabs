@@ -503,6 +503,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    算法的关键步骤如下：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     1 密钥生成
   </a>
@@ -619,6 +626,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    算法的关键步骤如下：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     1 密钥生成
   </a>
@@ -682,15 +696,13 @@
 <p>RSA 密码算法主要分为两个部分，一是生成公私钥对，二是要根据公钥和私钥进行加密和解密。下图是一个非常简单的RSA密码算法示例。但是一般情况需要加密的明文通常包含数字以外的字符，而且随机大素数只有位数足够多（比如1024位，目前安全的是2048位）RSA算法才相对安全。下图是一个简化的示例， p 和 q选择的非常小，只做演示用。</p>
 <p><center><img src="../assets/1-3.png" width = 600></center>
 <center>图 1-3 RSA密码算法示例</center></p>
-<p>算法的关键步骤如下：
-1. 公钥 
-随机选择两个的大素数 p 和 q ， n 是二者的乘积，即 n = pq ，使 <script type="math/tex">Φ(n)＝（p-1）(q-1)</script>，Φ(n) 为欧拉函数。随机选取正整数 e，使其满足 <script type="math/tex">gcd(e, Φ(n))=1</script>，即 e和 Φ(n) 互素，则将 (n,e) 作为公钥。 
-2. 私钥 
-求出整数 d，使其满足 <script type="math/tex">e×d=1 mod Φ(n)</script>，则将 (n,d) 作为私钥。 
-3. 加密算法 
-对于明文 M 分组的每个m，由 <script type="math/tex">c=E(m) = m^e mod n</script> ，得到密文 c。 
-4. 解密算法 
-对于密文 C 的每个密文分组，由 <script type="math/tex">m =D(c)= c^d mod n</script> ，得到明文 m。 </p>
+<h3 id="_2">算法的关键步骤如下：</h3>
+<ol>
+<li>公钥：随机选择两个的大素数 p 和 q ， n 是二者的乘积，即 n = pq ，使 <script type="math/tex">Φ(n)＝（p-1）(q-1)</script>，Φ(n) 为欧拉函数。随机选取正整数 e，使其满足 <script type="math/tex">gcd(e, Φ(n))=1</script>，即 e和 Φ(n) 互素，则将 (n,e) 作为公钥。 </li>
+<li>私钥：求出整数 d，使其满足 <script type="math/tex">e×d=1 mod Φ(n)</script>，则将 (n,d) 作为私钥。 </li>
+<li>加密算法：对于明文 M 分组的每个m，由 <script type="math/tex">c=E(m) = m^e mod n</script> ，得到密文 c。 </li>
+<li>解密算法：对于密文 C 的每个密文分组，由 <script type="math/tex">m =D(c)= c^d mod n</script> ，得到明文 m。 </li>
+</ol>
 <div class="admonition info">
 <p class="admonition-title">说明 <img alt="✨" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2728.svg" title=":sparkles:" /></p>
 <p>如果窃密者获得了n，e和密文C，为了破解密文他必须计算出私钥d，为此需要先分解n为p和q。为了提高破解难度，达到更高的安全性，一般商业应用要求n的长度不小于2048bit。</p>
