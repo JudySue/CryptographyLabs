@@ -674,7 +674,7 @@
 <h1 id="_1">实验原理</h1>
 <div class="admonition info">
 <p class="admonition-title">说明 <img alt="✨" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2728.svg" title=":sparkles:" /></p>
-<p><code>M</code> 代表明文，<code>m</code> 代表明文分组，<code>C</code> 代表密文，<code>(e,n)</code> 代表公钥，<code>(d,n)</code> 代表私钥。其中n是随机选取的两个大整数 <code>p</code> 和 <code>q</code>的乘积。</p>
+<p><code>M</code> 代表明文，<code>m</code> 代表明文分组，<code>C</code> 代表密文，<code>(e,n)</code> 代表公钥，<code>(d,n)</code> 代表私钥。其中n是随机选取的两个大素数 <code>p</code> 和 <code>q</code>的乘积。</p>
 </div>
 <p><center><img src="../assets/1-2.png" width = 600></center>
 <center>图 1-2 RSA密码算法参数说明</center></p>
@@ -688,9 +688,9 @@
 2. 私钥 
 求出整数 d，使其满足 <script type="math/tex">e×d=1 mod Φ(n)</script>，则将 (n,d) 作为私钥。 
 3. 加密算法 
-对于明文 M 分组的每个m，由 <script type="math/tex">c=E(m) = m^e^ mod n</script> ，得到密文 c。 
+对于明文 M 分组的每个m，由 <script type="math/tex">c=E(m) = m^e mod n</script> ，得到密文 c。 
 4. 解密算法 
-对于密文 C 的每个密文分组，由 <script type="math/tex">m =D(c)= c^d^ mod n</script> ，得到明文 m。 </p>
+对于密文 C 的每个密文分组，由 <script type="math/tex">m =D(c)= c^d mod n</script> ，得到明文 m。 </p>
 <div class="admonition info">
 <p class="admonition-title">说明 <img alt="✨" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2728.svg" title=":sparkles:" /></p>
 <p>如果窃密者获得了n，e和密文C，为了破解密文他必须计算出私钥d，为此需要先分解n为p和q。为了提高破解难度，达到更高的安全性，一般商业应用要求n的长度不小于2048bit。</p>
@@ -702,18 +702,18 @@
 <h3 id="1">1 密钥生成</h3>
 <ol>
 <li>选择大素数 <script type="math/tex">p</script> 和 <script type="math/tex">q</script> （如果用C语言不配置gmp可以选择四位数的十进制，其他语言要求至少128位的大素数，最好体会下1024位的速度）</li>
-<li>计算 <script type="math/tex">n = p * q</script>，然后计算<script type="math/tex">ｎ</script>的欧拉函数 <script type="math/tex">φ(n) = (p - 1) * (q - 1)</script>
+<li>计算 <script type="math/tex">n = p * q</script>，计算<script type="math/tex">ｎ</script>的欧拉函数 <script type="math/tex">φ(n) = (p - 1) * (q - 1)</script>
 </li>
 <li>选择一个与<script type="math/tex">φ(n)</script>互质的整数<script type="math/tex">e</script>
 </li>
 <li>将<script type="math/tex">e</script>对<script type="math/tex">φ(n)</script>求逆得到<script type="math/tex">d</script>，即  <script type="math/tex"> e * d ≡ 1 \quad mod \quad φ(n)</script>
 </li>
-<li>将 <script type="math/tex">(n,e)</script> 作为公钥， <script type="math/tex">(n,d)</script>作为私钥</li>
+<li>将 <script type="math/tex">(e,n)</script> 作为公钥， <script type="math/tex">(d,n)</script>作为私钥</li>
 </ol>
 <h4 id="11-p-q">1.1 生成大素数 <script type="math/tex">p</script> 和 <script type="math/tex">q</script>
 </h4>
-<p>本次实验对大素数的要求不高，最少是一个四位数的十进制，也就是至少14位的2进制。首先需要生成一个随机的数，然后再判定改数是不是素数。</p>
-<p>关于素数判定，我们应该还能想到大一的C语言编程，判断一个数 x 是不是素数，当时大家是从 2 到 根号 x 逐一判断，如果都不能被 n 整除，那就是素数，但是如果时1024位的呢？效率是不是超低？</p>
+<p>本次实验对大素数的要求不高，最少是一个四位数的十进制，也就是至少14位的2进制。首先需要生成一个随机的数，然后再判定该数是不是素数。</p>
+<p>关于素数判定，我们应该还能想到大一的C语言编程，判断一个数 x 是不是素数，当时大家是从 2 到 根号 x 逐一判断，如果都不能被 n 整除，那就是素数，但是如果是1024位的呢？效率是不是超低？</p>
 <p>这里给大家介绍一个概率性的素性检测法：Miller-Rabin算法，它本质上是一种概率算法，存在误判的可能性，但是出错的概率非常小，而且效率是比较高。</p>
 <p>原理和算法描述参考理论课件《FC-L8-数论基础v2》 36页和 37页。</p>
 <p><center><img src="../assets/1-4.png" width = 600></center>
@@ -747,7 +747,7 @@ Extended Euclid(f, d) （设 f &gt;d）
 <p>e可以位随机生成的一个小于  φ(n) 的整数，利用欧几里德判断 e 是否符合的互质要求，否则在令 <script type="math/tex">e += 1</script> 继续寻找。
   根据e，可以利用扩展的欧几里得求 d。</p>
 <h3 id="2">2 加密和解密</h3>
-<p>因为RSA算法的加密也解密运算都用到幂运算和取模运算，根据取模运算的性质，我们可以使用快速幂取模的方式来进行快速且不溢出的运算。</p>
+<p>因为RSA算法的加密和解密运算都用到幂运算和取模运算，根据取模运算的性质，我们可以使用快速幂取模的方式来进行快速且不溢出的运算。</p>
 <pre><code>  //m为底数，e为指数，n
   quick_pow(m,e,n) 
     ans = 1
