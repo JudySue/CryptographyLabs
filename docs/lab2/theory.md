@@ -67,8 +67,8 @@ RSA 密码算法主要分为两个部分，一是生成公私钥对，二是要�
     Extended Euclid(f, d) （设 f >d） 
       1. (X1,X2,X3)←(1,0,f);(Y1,Y2,Y3)←(0,1,d);
       2.  if Y3=0 then return  X3=gcd(f, d)；no inverse;
-      3. if  Y3=1 then return  Y3=gcd(f, d)；Y2=d-1 mod f;
-      4. Q=X3Y3 ；
+      3. if  Y3=1 then return  Y3=gcd(f, d)；Y2=d^-1 mod f;
+      4. Q=X3/Y3 ；
       5. (T1,T2,T3)←(X1-QY1,X2-QY2,X3-QY3);
       6. (X1,X2,X3)←(Y1,Y2,Y3);
       7. (Y1,Y2,Y3)←(T1,T2,T3);
