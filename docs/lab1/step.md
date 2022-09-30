@@ -18,5 +18,10 @@
 3. 实现逆列混淆函数 `void deMixColumns(int array[4][4])`，利用已经给出的函数 `GFMul`；
 4. 完成 `void deAes(char *c, int clen, char *key)`。
 
+## 3.结果参照
 
+可以参照下图对比密钥扩展和加密结果是否正确。
+
+<center><img src="../assets/4-1.png" width = 800></center>
+<center>图 4-1 参考结果</center>
 
