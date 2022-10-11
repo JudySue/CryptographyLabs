@@ -71,7 +71,7 @@ nav:
     - 实验步骤: lab2/step.md
 #  -  附加题: lab2/extra.md
     - 验收与提交: lab2/submit.md
-#  - 实验3：Hash长度扩展攻击:
+ # - 实验3：Hash长度扩展攻击:
 #    - 实验概述: lab3/overview.md
  #   - 实验原理: lab3/theory.md
  #   - 实验步骤: lab3/step.md
