@@ -25,7 +25,7 @@
 
 3. 任务3：长度扩展攻击
 
-4. 任务4：使用HMAC来抵御长度扩展攻击
+4. 任务4：使用 HMAC 来抵御长度扩展攻击
 
 ## 实验环境
 
@@ -103,7 +103,7 @@ http://www.seedlab-hashlen.com/?myname=JohnDoe&uid=1001&lstcmd=1
 
 使用VirtualBox-Windows版本，其下载地址https://download.virtualbox.org/virtualbox/6.1.38/VirtualBox-6.1.38-153438-Win.exe
 
-使用SeedUbuntu20.04作为运行环境，其下载参考https://seedsecuritylabs.org/labsetup.html，由于下载较慢，推荐提前下载或者使用第三方镜像（我挂VPN的话也就下载了十几分钟左右）
+使用SeedUbuntu20.04作为运行环境，其下载参考https://seedsecuritylabs.org/labsetup.html，由于下载较慢，推荐提前下载或者使用第三方镜像
 
 打开Virtualbox，安装虚拟机
 
