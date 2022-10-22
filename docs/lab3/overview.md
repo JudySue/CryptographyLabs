@@ -1,4 +1,4 @@
-## 实验目的
+## 1. 实验目的
 
 当客户端和服务器通过互联网通信时，它们会受到MITM攻击（即中间人攻击，Man-In-The-Middle Attack）。攻击者可以拦截来自客户端的请求，修改数据并发送修改后的请求给服务器。在这种情况下，服务器需要验证收到的请求的完整性。这个验证请求完整性的标准方法是向请求附加一个名为 MAC （即消息认证码，Message Authentication Code）的标签。
 
@@ -15,7 +15,7 @@
 
 - [Chapter 22 of the SEED Book, Computer & Internet Security: A Hands-on Approach, 2nd Edition, by Wenliang Du. See](https://www.handsonsecurity.net)
 
-## 实验内容
+## 2. 实验内容
 
 本次实验来自于https://seedsecuritylabs.org/Labs_20.04/Crypto/Crypto_Hash_Length_Ext/，共需要完成如下4个小任务。通过这4个任务完成对一个服务器网站的 Hash 扩展攻击，并对 Hash 扩展攻击进行防御验证。
 
@@ -27,7 +27,7 @@
 
 4. 任务4：使用 HMAC 来抵御长度扩展攻击
 
-## 实验环境
+## 3. 实验环境
 
 本次实验基于预先创建的Ubuntu 20.04虚拟机，实验室的环境已经安装部署好。如果自行安装也可以从SEED的网站上下载（默认密码是dees）。
 
@@ -99,7 +99,7 @@ http://www.seedlab-hashlen.com/?myname=JohnDoe&uid=1001&lstcmd=1
 &mac=dc8788905dbcbceffcdd5578887717c12691b3cf1dac6b2f2bcfabc14a6a7f11
 ```
 
-## 自行搭建 SeedLab2.0 环境
+## 4.自行搭建 SeedLab2.0 环境
 
 使用VirtualBox-Windows版本，其下载地址https://download.virtualbox.org/virtualbox/6.1.38/VirtualBox-6.1.38-153438-Win.exe
 

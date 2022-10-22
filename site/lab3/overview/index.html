@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#1" class="md-skip">
           跳转至
         </a>
       
@@ -583,29 +583,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    实验目的
+  <a href="#1" class="md-nav__link">
+    1. 实验目的
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    实验内容
+  <a href="#2" class="md-nav__link">
+    2. 实验内容
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    实验环境
+  <a href="#3" class="md-nav__link">
+    3. 实验环境
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#seedlab20" class="md-nav__link">
-    自行搭建 SeedLab2.0 环境
+  <a href="#4-seedlab20" class="md-nav__link">
+    4.自行搭建 SeedLab2.0 环境
   </a>
   
 </li>
@@ -692,29 +692,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    实验目的
+  <a href="#1" class="md-nav__link">
+    1. 实验目的
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    实验内容
+  <a href="#2" class="md-nav__link">
+    2. 实验内容
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    实验环境
+  <a href="#3" class="md-nav__link">
+    3. 实验环境
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#seedlab20" class="md-nav__link">
-    自行搭建 SeedLab2.0 环境
+  <a href="#4-seedlab20" class="md-nav__link">
+    4.自行搭建 SeedLab2.0 环境
   </a>
   
 </li>
@@ -735,7 +735,7 @@
 
   <h1>实验概述</h1>
 
-<h2 id="_1">实验目的</h2>
+<h2 id="1">1. 实验目的</h2>
 <p>当客户端和服务器通过互联网通信时，它们会受到MITM攻击（即中间人攻击，Man-In-The-Middle Attack）。攻击者可以拦截来自客户端的请求，修改数据并发送修改后的请求给服务器。在这种情况下，服务器需要验证收到的请求的完整性。这个验证请求完整性的标准方法是向请求附加一个名为 MAC （即消息认证码，Message Authentication Code）的标签。</p>
 <p>计算 MAC 的方法有很多，但是有些方法不安全。计算 MAC 的一种简单方法是将密钥和消息连接到一起，并计算合并后字符串的单向哈希值。这种方式会使得攻击者在不知道密钥的情况下，依然能够通过修改消息验证成功，也就是它会受到长度扩展攻击。</p>
 <p>本次实验通过4个小任务达到以下两个目的。</p>
@@ -751,7 +751,7 @@
 <ul>
 <li><a href="https://www.handsonsecurity.net">Chapter 22 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2<sup>nd</sup> Edition, by Wenliang Du. See</a></li>
 </ul>
-<h2 id="_2">实验内容</h2>
+<h2 id="2">2. 实验内容</h2>
 <p>本次实验来自于https://seedsecuritylabs.org/Labs_20.04/Crypto/Crypto_Hash_Length_Ext/，共需要完成如下4个小任务。通过这4个任务完成对一个服务器网站的 Hash 扩展攻击，并对 Hash 扩展攻击进行防御验证。</p>
 <ol>
 <li>
@@ -767,7 +767,7 @@
 <p>任务4：使用 HMAC 来抵御长度扩展攻击</p>
 </li>
 </ol>
-<h2 id="_3">实验环境</h2>
+<h2 id="3">3. 实验环境</h2>
 <p>本次实验基于预先创建的Ubuntu 20.04虚拟机，实验室的环境已经安装部署好。如果自行安装也可以从SEED的网站上下载（默认密码是dees）。</p>
 <p>需要为此实验创建一个web服务器。客户端可以向此服务器发送命令列表，对于每个请求，必须附加基于密钥和命令列表计算得到的 MAC 。如果 MAC 验证成功，那么服务器将执行命令列表中的命令。使用虚拟机主机作为客户端，并且将web服务器置于容器中。</p>
 <p><strong>创建容器和对应命令</strong>：请下载<a href="https://seedsecuritylabs.org/Labs_20.04/Files/Crypto_Hash_Length_Ext/Labsetup.zip">Labsetup.zip</a>到你的虚拟机中，解压缩并进入<code>Labsetup</code>文件夹，然后使用<code>docker-compose.yml</code>文件来创建实验环境。此文件和所有涉及到的Dockerfile中的内容的详细解释可以从<a href="https://github.com/seed-labs/seed-labs/blob/master/manuals/docker/SEEDManual-Container.md">用户手册</a>中找到。如果这是你第一次使用容器创建SEED实验环境，阅读用户手册非常重要。</p>
@@ -817,7 +817,7 @@ root@9652715c8e0a:/#
 &amp;download=secret.txt
 &amp;mac=dc8788905dbcbceffcdd5578887717c12691b3cf1dac6b2f2bcfabc14a6a7f11
 </code></pre></div>
-<h2 id="seedlab20">自行搭建 SeedLab2.0 环境</h2>
+<h2 id="4-seedlab20">4.自行搭建 SeedLab2.0 环境</h2>
 <p>使用VirtualBox-Windows版本，其下载地址https://download.virtualbox.org/virtualbox/6.1.38/VirtualBox-6.1.38-153438-Win.exe</p>
 <p>使用SeedUbuntu20.04作为运行环境，其下载参考https://seedsecuritylabs.org/labsetup.html，由于下载较慢，推荐提前下载或者使用第三方镜像</p>
 <p>打开Virtualbox，安装虚拟机</p>

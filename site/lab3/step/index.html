@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#1-1" class="md-skip">
           跳转至
         </a>
       
@@ -611,48 +611,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    实验任务
-  </a>
-  
-    <nav class="md-nav" aria-label="实验任务">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#1-1" class="md-nav__link">
     1 任务1：发送请求来列出所有文件
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#2-2padding" class="md-nav__link">
     2 任务2：创建Padding
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#3-3" class="md-nav__link">
     3 任务3：长度扩展攻击
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#4-4hmac" class="md-nav__link">
     4 任务4：使用HMAC来缓解长度扩展攻击
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     提交
   </a>
   
@@ -712,48 +699,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    实验任务
-  </a>
-  
-    <nav class="md-nav" aria-label="实验任务">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#1-1" class="md-nav__link">
     1 任务1：发送请求来列出所有文件
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#2-2padding" class="md-nav__link">
     2 任务2：创建Padding
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#3-3" class="md-nav__link">
     3 任务3：长度扩展攻击
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#4-4hmac" class="md-nav__link">
     4 任务4：使用HMAC来缓解长度扩展攻击
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     提交
   </a>
   
@@ -775,8 +749,7 @@
 
   <h1>实验步骤</h1>
 
-<h2 id="_1">实验任务</h2>
-<h3 id="1-1">1 任务1：发送请求来列出所有文件</h3>
+<h2 id="1-1">1 任务1：发送请求来列出所有文件</h2>
 <p>在这个文件中，我们将向服务器发送一个合法请求，以此来了解服务器是怎么响应我们发送的请求的。我们想要发送的请求如下：</p>
 <div class="highlight"><pre><span></span><code>http://www.seedlab-hashlen.com/?myname=&lt;name&gt;&amp;uid=&lt;need-to-fill&gt;
 &amp;lstcmd=1&amp;mac=&lt;need-to-calculate&gt;
@@ -796,7 +769,7 @@
 <p>下图是修改myname = SEEDManual 对应访问网站的结果如下图所示，可见能够成功访问，并且列出了目录下的文件</p>
 <p><img alt="" src="../Hash-%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95.assets/4.PNG" /></p>
 <p><strong>任务1</strong>：请发送一个<code>download</code>命令到服务区，myname的信息修改为你自己的姓名拼音，并且记录你得到的响应内容</p>
-<h3 id="2-2padding">2 任务2：创建Padding</h3>
+<h2 id="2-2padding">2 任务2：创建Padding</h2>
 <p>为了进行Hash长度扩展攻击，我们需要了解单向哈希函数的padding是如何计算的（padding就是填充）。SHA256的块大小是64字节，因此消息<script type="math/tex">\text{M}</script>在计算过程中将被填充为64字节的整数倍。按照<script type="math/tex">\text{RFC\;6234}</script>，SHA256的padding包括一个字节的<script type="math/tex">\text{0x80}</script>，接着是许多的<script type="math/tex">\text{0}</script>，最后是一个64bit（即8字节）的长度字段，长度字段中记录了消息<script type="math/tex">\text{M}</script>的bit数。</p>
 <p>假设原始消息为<script type="math/tex">\text{M="This is a test message"}</script>，其长度为22字节，因此其padding填充为<script type="math/tex">64-22=42</script>字节，这42字节中包括8字节的长度字段，该长度字段的值为<script type="math/tex">\text{22*8=176=0xB0}</script>。因此SHA256将使用以下填充padding后的内容进行计算：</p>
 <div class="highlight"><pre><span></span><code>&quot;This is a test message&quot;
@@ -816,7 +789,7 @@
 <p>应该注意，在URL中，所有padding中的十六进制数字都需要由<code>\x</code>改为<code>%</code>。例如，之前padding中的<code>\x80</code>需要改为<code>%80</code>，之后在服务器端，URL中的编码数据将对应更改为二进制数字。以下是示例：</p>
 <div class="highlight"><pre><span></span><code>&quot;\x80\x00\x00\x99&quot; should be encoded as &quot;%80%00%00%99&quot;
 </code></pre></div>
-<h3 id="3-3">3 任务3：长度扩展攻击</h3>
+<h2 id="3-3">3 任务3：长度扩展攻击</h2>
 <p>在此任务中，我们将在不知道<script type="math/tex">\text{MAC}</script>密钥的情况下，为URL生成有效的<script type="math/tex">\text{MAC}</script>。假设我们知道有效请求<script type="math/tex">\text{R}</script>的<script type="math/tex">\text{MAC}</script>，还知道<script type="math/tex">\text{MAC}</script>密钥的大小，然后我们的工作是基于请求<script type="math/tex">\text{R}</script>构造一个新的请求，同时依然能计算得到新请求的有效<script type="math/tex">\text{MAC}</script>。</p>
 <p>给定原始消息<script type="math/tex">\text{M="This is a test message"}</script>及其<script type="math/tex">\text{MAC}</script>值，我们将在下面展示如何添加一段消息<script type="math/tex">\text{Extra message}</script>到填充后消息<script type="math/tex">\text{M}</script>的尾部，然后计算其<script type="math/tex">\text{MAC}</script>而不需要知道<script type="math/tex">\text{MAC}</script>密钥。</p>
 <div class="highlight"><pre><span></span><code>$ echo -n &quot;This is a test message&quot; | sha256sum
@@ -871,7 +844,7 @@ int main(int argc, const char *argv[])
 </code></pre></div>
 <p>然后发送构造好的新请求到服务器，记录你收到的服务器响应，即你需要证明你得到了<code>secret.txt</code>文件的内容，以此来说明你完成了本次攻击。</p>
 <p><strong>任务3.2</strong>：发送构造好的新请求到服务器，记录收到的服务器响应并截图。</p>
-<h3 id="4-4hmac">4 任务4：使用HMAC来缓解长度扩展攻击</h3>
+<h2 id="4-4hmac">4 任务4：使用HMAC来缓解长度扩展攻击</h2>
 <p>到目前为止的实验内容中，我们已经了解到，通过连接密钥和消息然后进行计算得到<script type="math/tex">\text{MAC}</script>的方法是不安全的。在这个任务中，我们将修复这种错误，计算<script type="math/tex">\text{MAC}</script>的标准方法是使用<script type="math/tex">\text{HMAC}</script>。你应该修改服务器程序的<code>verify-mac()</code>函数，并使用Python的<code>hamc</code>模块包来计算<script type="math/tex">\text{MAC}</script>。其中<code>verify-mac()</code>函数在<code>lab.py</code>文件中。给定一个密钥和消息（都是字符串类型），可以如下计算<script type="math/tex">\text{HMAC}</script>值。</p>
 <div class="highlight"><pre><span></span><code>real_mac = hmac.new(bytearray(key.encode(’utf-8’)),
             msg=message.encode(’utf-8’, ’surrogateescape’),
@@ -890,7 +863,7 @@ mac = hmac.new(bytearray(key.encode(’utf-8’)),
 print(mac)
 </code></pre></div>
 <p><strong>任务4</strong> 按照预期，当服务器和客户端都使用<script type="math/tex">\text{HMAC}</script>来计算<script type="math/tex">\text{MAC}</script>时，发送长度扩展（添加了额外命令）的恶意请求将会失败，你需要记录下来并分析其中的原因</p>
-<h2 id="_2">提交</h2>
+<h2 id="_1">提交</h2>
 <p>你需要提交一份具体的实验报告包含以上的几个任务，其中应包含实验截图，并描述你做了什么，及你观察到了那些内容.</p>
 
               
