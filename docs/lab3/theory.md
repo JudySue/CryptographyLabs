@@ -70,7 +70,7 @@ SHA256 的详细算法实现不是我们关注的重点，我们只关注其实�
 <center>图 2-5 SHA256算法机制</center>
 
 !!! info "说明 :sparkles:"
-    SHA256 的详细算法实现我们本次实验不重点关注，感兴趣的同学可以参考如下链接：https://blog.csdn.net/u011583927/article/details/80905740， 也可以到B站上参考相关视频介绍。也可以参考我们理论课上关于 SHA512 算法的详细介绍。 工作原理都是类似的。
+    SHA256 的详细算法实现我们本次实验不重点关注，感兴趣的同学可以参考如下链接：https://blog.csdn.net/wowotuo/article/details/78907380，https://github.com/in3rsha/sha256-animation 也可以到B站上参考相关视频介绍。也可以参考我们理论课上关于 SHA512 算法的详细介绍。 工作原理都是类似的。
 
 ### 3.3 理解 SHA256 长度扩展攻击
 

@@ -786,6 +786,8 @@
 <p><strong>任务2</strong>：你需要为以下消息创建对应padding，其中<code>&lt;key&gt;</code>和<code>&lt;uid&gt;</code>的实际内容应该从<code>LabHome/key.txt</code>文件中得到，myname依然用你自己的姓名：</p>
 <div class="highlight"><pre><span></span><code>&lt;key&gt;:myname=&lt;name&gt;&amp;uid=&lt;uid&gt;&amp;lstcmd=1
 </code></pre></div>
+<p>可以使用给出的compute_padding.py代码，大家打开代码看下具体内容,修改myname的值，了解padding的过程。然后执行下面的命令。
+./compute_padding.py</p>
 <p>应该注意，在URL中，所有padding中的十六进制数字都需要由<code>\x</code>改为<code>%</code>。例如，之前padding中的<code>\x80</code>需要改为<code>%80</code>，之后在服务器端，URL中的编码数据将对应更改为二进制数字。以下是示例：</p>
 <div class="highlight"><pre><span></span><code>&quot;\x80\x00\x00\x99&quot; should be encoded as &quot;%80%00%00%99&quot;
 </code></pre></div>
@@ -839,9 +841,12 @@ int main(int argc, const char *argv[])
 &amp;lstcmd=1&amp;mac=&lt;mac&gt;
 </code></pre></div>
 <p>基于以上计算得到的<code>&lt;mac&gt;</code>值，构造一个新的包含<code>download</code>命令的请求，构造的构成中不允许使用密钥，新的URL请求结构如下：</p>
-<div class="highlight"><pre><span></span><code>http://www.seedlab-hashlen.com/?myname=&lt;name&gt;&amp;uid=&lt;uid&gt;
+<p><div class="highlight"><pre><span></span><code>http://www.seedlab-hashlen.com/?myname=&lt;name&gt;&amp;uid=&lt;uid&gt;
 &amp;lstcmd=1&lt;padding&gt;&amp;download=secret.txt&amp;mac=&lt;new-mac&gt;
 </code></pre></div>
+new-mac的生成，可以采用下面的方式，参考给出的代码，将里面初始值的信息换成填充前已经获取到的mac值的信息，如何分割成8个8位的信息，可以自己写代码也可手工完成。
+    <script type="math/tex"> gcc url_length_extension.c -lcrypto
+    </script> a.out</p>
 <p>然后发送构造好的新请求到服务器，记录你收到的服务器响应，即你需要证明你得到了<code>secret.txt</code>文件的内容，以此来说明你完成了本次攻击。</p>
 <p><strong>任务3.2</strong>：发送构造好的新请求到服务器，记录收到的服务器响应并截图。</p>
 <h2 id="4-4hmac">4 任务4：使用HMAC来缓解长度扩展攻击</h2>

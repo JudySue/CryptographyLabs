@@ -63,6 +63,10 @@ http://www.seedlab-hashlen.com/?myname=JohnDoe&uid=1001&lstcmd=1
 <key>:myname=<name>&uid=<uid>&lstcmd=1
 ```
 
+可以使用给出的compute_padding.py代码，大家打开代码看下具体内容,修改myname的值，了解padding的过程。然后执行下面的命令。
+./compute_padding.py
+
+
 应该注意，在URL中，所有padding中的十六进制数字都需要由`\x`改为`%`。例如，之前padding中的`\x80`需要改为`%80`，之后在服务器端，URL中的编码数据将对应更改为二进制数字。以下是示例：
 
 ```
@@ -138,6 +142,9 @@ http://www.seedlab-hashlen.com/?myname=<name>&uid=<uid>
 http://www.seedlab-hashlen.com/?myname=<name>&uid=<uid>
 &lstcmd=1<padding>&download=secret.txt&mac=<new-mac>
 ```
+new-mac的生成，可以采用下面的方式，参考给出的代码，将里面初始值的信息换成填充前已经获取到的mac值的信息，如何分割成8个8位的信息，可以自己写代码也可手工完成。
+    $ gcc url_length_extension.c -lcrypto
+    $ a.out
 
 然后发送构造好的新请求到服务器，记录你收到的服务器响应，即你需要证明你得到了`secret.txt`文件的内容，以此来说明你完成了本次攻击。
 

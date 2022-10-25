@@ -874,7 +874,7 @@
 <center>图 2-5 SHA256算法机制</center></p>
 <div class="admonition info">
 <p class="admonition-title">说明 <img alt="✨" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2728.svg" title=":sparkles:" /></p>
-<p>SHA256 的详细算法实现我们本次实验不重点关注，感兴趣的同学可以参考如下链接：<a href="https://blog.csdn.net/u011583927/article/details/80905740">https://blog.csdn.net/u011583927/article/details/80905740</a>， 也可以到B站上参考相关视频介绍。也可以参考我们理论课上关于 SHA512 算法的详细介绍。 工作原理都是类似的。</p>
+<p>SHA256 的详细算法实现我们本次实验不重点关注，感兴趣的同学可以参考如下链接：<a href="https://blog.csdn.net/wowotuo/article/details/78907380">https://blog.csdn.net/wowotuo/article/details/78907380</a>，<a href="https://github.com/in3rsha/sha256-animation">https://github.com/in3rsha/sha256-animation</a> 也可以到B站上参考相关视频介绍。也可以参考我们理论课上关于 SHA512 算法的详细介绍。 工作原理都是类似的。</p>
 </div>
 <h3 id="33-sha256">3.3 理解 SHA256 长度扩展攻击</h3>
 <p>根据前面的填充机制和 MD 的构造方式，如果一个字符串有两个字符串组成，比如 str = a + b, 如果第一个字符串 a 不知道具体信息只知道长度，而第二个字符串 b 是可控的。 但是我们知道第一个字符串的长度和 Hash 值，那么我们就可以根据填充规则精心构造下第二个字符串，从而算出 str 的 Hash 值。</p>
