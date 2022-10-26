@@ -656,6 +656,13 @@
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    创建容器解决办法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     启动容器：
   </a>
   
@@ -700,7 +707,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     提交
   </a>
   
@@ -805,6 +812,13 @@
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    创建容器解决办法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     启动容器：
   </a>
   
@@ -849,7 +863,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     提交
   </a>
   
@@ -921,6 +935,7 @@ Archive:  Labsetup.zip
 </code></pre></div>
 <h4 id="013-docker">0.1.3 创建并启动docker服务器</h4>
 <h4 id="_1">创建容器</h4>
+<p>如果创建容器时间较长，就可能需要需要换下载源，参考 创建容器失败解决办法</p>
 <div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/Crypto_Hash_Extension$ cd Labsetup/
 [09/25/22]seed@VM:~/.../Labsetup$ dcbuild
 Building web-server
@@ -951,6 +966,7 @@ Successfully tagged seed-image-flask-len-ext:latest
 <div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo vi /etc/hosts
 </code></pre></div>
 <p><img alt="" src="../Hash-%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95.assets/2.PNG" /></p>
+<h4 id="_2">创建容器解决办法</h4>
 <p>如果创建过程中，遇到下载失败的情况，可以在这里设置了docker国内镜像源，然后再重新  dcbuild</p>
 <div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo vi /etc/docker/daemon.json
 </code></pre></div>
@@ -967,7 +983,7 @@ Successfully tagged seed-image-flask-len-ext:latest
 <div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo systemctl daemon-reload
 [09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo systemctl restart docker
 </code></pre></div>
-<h4 id="_2">启动容器：</h4>
+<h4 id="_3">启动容器：</h4>
 <div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/.../Labsetup$ dcup
 Creating network &quot;net-10.9.0.0&quot; with the default driver
 Creating www-10.9.0.80 ... done
@@ -1003,7 +1019,7 @@ dbcd21ad6e6a  www-10.9.0.80
 <div class="highlight"><pre><span></span><code>http://www.seedlab-hashlen.com/?myname=JohnDoe&amp;uid=1001&amp;lstcmd=1
 &amp;mac=7d5f750f8b3203bd963d75217c980d139df5d0e50d19d6dfdb8a7de1f8520ce3
 </code></pre></div>
-<p>下图是修改myname = suting 并且加上 download 命令对应访问网站的结果如下图所示，可见能够成功访问，并且列出了目录下的文件和打开了secret.txt的文件。</p>
+<p>下图是修改myname = suting 并且加上 download 命令 download=secret.txt 对应访问网站的结果如下图所示，可见能够成功访问，并且列出了目录下的文件和打开了secret.txt的文件。</p>
 <p><a href="http://www.seedlab-hashlen.com/?myname=suting&amp;uid=1001&amp;lstcmd=1&amp;download=secret.txt&amp;mac=ecf920ce0392a2317ce32bf692c88bf106db77fc20e4f948b7fee6a133af84b5">http://www.seedlab-hashlen.com/?myname=suting&amp;uid=1001&amp;lstcmd=1&amp;download=secret.txt&amp;mac=ecf920ce0392a2317ce32bf692c88bf106db77fc20e4f948b7fee6a133af84b5</a></p>
 <p><center><img src="../assets/4-1.png" width = 600></center></p>
 <p><strong>任务1</strong>：参考上面的内容，请发送一个<code>download</code>命令到服务区，myname的信息修改为你自己的姓名拼音，并且记录你得到的响应内容</p>
@@ -1041,9 +1057,10 @@ dbcd21ad6e6a  www-10.9.0.80
 <p><div class="highlight"><pre><span></span><code>http://www.seedlab-hashlen.com/?myname=&lt;name&gt;&amp;uid=&lt;uid&gt;
 &amp;lstcmd=1&lt;padding&gt;&amp;download=secret.txt&amp;mac=&lt;new-mac&gt;
 </code></pre></div>
-new-mac的生成，可以采用下面的方式，参考给出的代码，将里面初始值的信息换成填充前已经获取到的mac值的信息，如何分割成8个8位的信息，可以自己写代码也可手工完成。
-    gcc url_length_extension.c -lcrypto
-    a.out</p>
+new-mac的生成，可以采用下面的方式，参考给出的代码，将里面初始值的信息换成填充前已经获取到的mac值的信息，如何分割成8个8位的信息，可以自己写代码也可手工完成。</p>
+<pre><code>gcc url_length_extension.c -lcrypto
+a.out
+</code></pre>
 <p>然后发送构造好的新请求到服务器，记录你收到的服务器响应，即你需要证明你得到了<code>secret.txt</code>文件的内容，以此来说明你完成了本次攻击。</p>
 <p><strong>任务3.2</strong>：发送构造好的新请求到服务器，记录收到的服务器响应并截图。</p>
 <h2 id="4-4hmac">4 任务4：使用HMAC来缓解长度扩展攻击</h2>
@@ -1065,7 +1082,7 @@ mac = hmac.new(bytearray(key.encode(’utf-8’)),
 print(mac)
 </code></pre></div>
 <p><strong>任务4</strong> 按照预期，当服务器和客户端都使用<script type="math/tex">\text{HMAC}</script>来计算<script type="math/tex">\text{MAC}</script>时，发送长度扩展（添加了额外命令）的恶意请求将会失败，你需要记录下来并分析其中的原因</p>
-<h2 id="_3">提交</h2>
+<h2 id="_4">提交</h2>
 <p>你需要提交一份具体的实验报告包含以上的几个任务，其中应包含实验截图，并描述你做了什么，及你观察到了那些内容.</p>
 
               

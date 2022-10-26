@@ -71,6 +71,8 @@ Archive:  Labsetup.zip
 
 #### 创建容器
 
+如果创建容器时间较长，就可能需要需要换下载源，参考 创建容器失败解决办法
+
 ```
 [09/25/22]seed@VM:~/Crypto_Hash_Extension$ cd Labsetup/
 [09/25/22]seed@VM:~/.../Labsetup$ dcbuild
@@ -107,6 +109,8 @@ Successfully tagged seed-image-flask-len-ext:latest
 
 ![](Hash-实验记录.assets/2.PNG)
 
+
+#### 创建容器解决办法
 
 如果创建过程中，遇到下载失败的情况，可以在这里设置了docker国内镜像源，然后再重新  dcbuild
 
@@ -195,7 +199,7 @@ http://www.seedlab-hashlen.com/?myname=JohnDoe&uid=1001&lstcmd=1
 &mac=7d5f750f8b3203bd963d75217c980d139df5d0e50d19d6dfdb8a7de1f8520ce3
 ```
 
-下图是修改myname = suting 并且加上 download 命令对应访问网站的结果如下图所示，可见能够成功访问，并且列出了目录下的文件和打开了secret.txt的文件。
+下图是修改myname = suting 并且加上 download 命令 download=secret.txt 对应访问网站的结果如下图所示，可见能够成功访问，并且列出了目录下的文件和打开了secret.txt的文件。
 
 http://www.seedlab-hashlen.com/?myname=suting&uid=1001&lstcmd=1&download=secret.txt&mac=ecf920ce0392a2317ce32bf692c88bf106db77fc20e4f948b7fee6a133af84b5
 
@@ -266,6 +270,7 @@ http://www.seedlab-hashlen.com/?myname=<name>&uid=<uid>
 &lstcmd=1<padding>&download=secret.txt&mac=<new-mac>
 ```
 new-mac的生成，可以采用下面的方式，参考给出的代码，将里面初始值的信息换成填充前已经获取到的mac值的信息，如何分割成8个8位的信息，可以自己写代码也可手工完成。
+
     gcc url_length_extension.c -lcrypto
     a.out
 
