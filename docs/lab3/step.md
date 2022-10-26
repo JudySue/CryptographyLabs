@@ -27,6 +27,7 @@
 #### 0.1.2 下载对应资料
 
 方式1：在虚拟机直接联网，从工具资料路径下 https://gitee.com/hitsz-cslab/cryptography-labs/tree/master/stupkt/lab3 下载 Labsetup.zip 和 code。
+
 方式2：在PC机上下载了Labsetup.zip 和 code，再传送到虚拟机中。 
 
 然后启动虚拟机，首先在当前目录下创建本次实验的文件夹
@@ -66,36 +67,9 @@ Archive:  Labsetup.zip
   inflating: Labsetup/image_flask/Dockerfile
 ```
 
+#### 0.1.3 创建并启动docker服务器
 
-
-![](Hash-实验记录.assets/1.PNG)
-
-因为下载失败的原因，我在这里设置了docker国内镜像源
-
-```
-[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo vi /etc/docker/daemon.json
-```
-
-写入如下内容，保存后退出
-
-```
-{
-        "registry-mirrors": [
-                "https://hub-mirror.c.163.com",
-                "https://mirror.baidubce.com",
-                "https://docker.mirrors.sjtug.sjtu.edu.cn"
-        ]       
-} 
-```
-
- 执行以下命令
-
-```
-[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo systemctl daemon-reload
-[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo systemctl restart docker
-```
-
-之后创建容器
+#### 创建容器
 
 ```
 [09/25/22]seed@VM:~/Crypto_Hash_Extension$ cd Labsetup/
@@ -133,7 +107,33 @@ Successfully tagged seed-image-flask-len-ext:latest
 
 ![](Hash-实验记录.assets/2.PNG)
 
-启动容器：
+
+如果创建过程中，遇到下载失败的情况，可以在这里设置了docker国内镜像源，然后再重新  dcbuild
+
+```
+[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo vi /etc/docker/daemon.json
+```
+
+写入如下内容，保存后退出
+
+```
+{
+        "registry-mirrors": [
+                "https://hub-mirror.c.163.com",
+                "https://mirror.baidubce.com",
+                "https://docker.mirrors.sjtug.sjtu.edu.cn"
+        ]       
+} 
+```
+
+ 执行以下命令
+
+```
+[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo systemctl daemon-reload
+[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo systemctl restart docker
+```
+
+#### 启动容器：
 
 ```
 [09/25/22]seed@VM:~/.../Labsetup$ dcup

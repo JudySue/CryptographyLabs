@@ -640,6 +640,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#013-docker" class="md-nav__link">
+    0.1.3 创建并启动docker服务器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    创建容器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    启动容器：
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -679,7 +700,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     提交
   </a>
   
@@ -768,6 +789,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#013-docker" class="md-nav__link">
+    0.1.3 创建并启动docker服务器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    创建容器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    启动容器：
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -807,7 +849,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     提交
   </a>
   
@@ -847,8 +889,8 @@
 <p>根据下面的截图配置双网卡，配置完成后，Seed 虚拟机连接外网和 ssh连接都没有问题。</p>
 <p><center><img src="../assets/3-2.png" width = 600></center></p>
 <h4 id="012">0.1.2 下载对应资料</h4>
-<p>方式1：在虚拟机直接联网，从工具资料路径下 <a href="https://gitee.com/hitsz-cslab/cryptography-labs/tree/master/stupkt/lab3">https://gitee.com/hitsz-cslab/cryptography-labs/tree/master/stupkt/lab3</a> 下载 Labsetup.zip 和 code。
-方式2：在PC机上下载了Labsetup.zip 和 code，再传送到虚拟机中。 </p>
+<p>方式1：在虚拟机直接联网，从工具资料路径下 <a href="https://gitee.com/hitsz-cslab/cryptography-labs/tree/master/stupkt/lab3">https://gitee.com/hitsz-cslab/cryptography-labs/tree/master/stupkt/lab3</a> 下载 Labsetup.zip 和 code。</p>
+<p>方式2：在PC机上下载了Labsetup.zip 和 code，再传送到虚拟机中。 </p>
 <p>然后启动虚拟机，首先在当前目录下创建本次实验的文件夹</p>
 <p><div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~$ mkdir Crypto_Hash_Extension
 [09/25/22]seed@VM:~$ cd Crypto_Hash_Extension
@@ -877,24 +919,8 @@ Archive:  Labsetup.zip
   inflating: Labsetup/image_flask/bashrc  
   inflating: Labsetup/image_flask/Dockerfile
 </code></pre></div>
-<p><img alt="" src="../Hash-%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95.assets/1.PNG" /></p>
-<p>因为下载失败的原因，我在这里设置了docker国内镜像源</p>
-<div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo vi /etc/docker/daemon.json
-</code></pre></div>
-<p>写入如下内容，保存后退出</p>
-<div class="highlight"><pre><span></span><code>{
-        &quot;registry-mirrors&quot;: [
-                &quot;https://hub-mirror.c.163.com&quot;,
-                &quot;https://mirror.baidubce.com&quot;,
-                &quot;https://docker.mirrors.sjtug.sjtu.edu.cn&quot;
-        ]       
-} 
-</code></pre></div>
-<p>执行以下命令</p>
-<div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo systemctl daemon-reload
-[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo systemctl restart docker
-</code></pre></div>
-<p>之后创建容器</p>
+<h4 id="013-docker">0.1.3 创建并启动docker服务器</h4>
+<h4 id="_1">创建容器</h4>
 <div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/Crypto_Hash_Extension$ cd Labsetup/
 [09/25/22]seed@VM:~/.../Labsetup$ dcbuild
 Building web-server
@@ -925,7 +951,23 @@ Successfully tagged seed-image-flask-len-ext:latest
 <div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo vi /etc/hosts
 </code></pre></div>
 <p><img alt="" src="../Hash-%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95.assets/2.PNG" /></p>
-<p>启动容器：</p>
+<p>如果创建过程中，遇到下载失败的情况，可以在这里设置了docker国内镜像源，然后再重新  dcbuild</p>
+<div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo vi /etc/docker/daemon.json
+</code></pre></div>
+<p>写入如下内容，保存后退出</p>
+<div class="highlight"><pre><span></span><code>{
+        &quot;registry-mirrors&quot;: [
+                &quot;https://hub-mirror.c.163.com&quot;,
+                &quot;https://mirror.baidubce.com&quot;,
+                &quot;https://docker.mirrors.sjtug.sjtu.edu.cn&quot;
+        ]       
+} 
+</code></pre></div>
+<p>执行以下命令</p>
+<div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo systemctl daemon-reload
+[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo systemctl restart docker
+</code></pre></div>
+<h4 id="_2">启动容器：</h4>
 <div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/.../Labsetup$ dcup
 Creating network &quot;net-10.9.0.0&quot; with the default driver
 Creating www-10.9.0.80 ... done
@@ -1023,7 +1065,7 @@ mac = hmac.new(bytearray(key.encode(’utf-8’)),
 print(mac)
 </code></pre></div>
 <p><strong>任务4</strong> 按照预期，当服务器和客户端都使用<script type="math/tex">\text{HMAC}</script>来计算<script type="math/tex">\text{MAC}</script>时，发送长度扩展（添加了额外命令）的恶意请求将会失败，你需要记录下来并分析其中的原因</p>
-<h2 id="_1">提交</h2>
+<h2 id="_3">提交</h2>
 <p>你需要提交一份具体的实验报告包含以上的几个任务，其中应包含实验截图，并描述你做了什么，及你观察到了那些内容.</p>
 
               
