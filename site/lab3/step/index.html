@@ -1065,8 +1065,8 @@ a.out
 <p><strong>任务3.2</strong>：发送构造好的新请求到服务器，记录收到的服务器响应并截图。</p>
 <h2 id="4-4hmac">4 任务4：使用HMAC来缓解长度扩展攻击</h2>
 <p>到目前为止的实验内容中，我们已经了解到，通过连接密钥和消息然后进行计算得到<script type="math/tex">\text{MAC}</script>的方法是不安全的。在这个任务中，我们将修复这种错误，计算<script type="math/tex">\text{MAC}</script>的标准方法是使用<script type="math/tex">\text{HMAC}</script>。你应该修改服务器程序的<code>verify-mac()</code>函数，并使用Python的<code>hamc</code>模块包来计算<script type="math/tex">\text{MAC}</script>。其中<code>verify-mac()</code>函数在<code>lab.py</code>文件中。给定一个密钥和消息（都是字符串类型），可以如下计算<script type="math/tex">\text{HMAC}</script>值。</p>
-<div class="highlight"><pre><span></span><code>real_mac = hmac.new(bytearray(key.encode(’utf-8’)),
-            msg=message.encode(’utf-8’, ’surrogateescape’),
+<div class="highlight"><pre><span></span><code>real_mac = hmac.new(bytearray(key.encode(&#39;utf-8&#39;)),
+            msg=message.encode(&#39;utf-8&#39;, &#39;surrogateescape&#39;),
             digestmod=hashlib.sha256).hexdigest()
 </code></pre></div>
 <p>完成以上更改后，停止所有容器，并重新build它们，然后再次启动所有容器。只有这样，你所作的改变才会生效。之后，你应该重复任务1，需要注意的是，此次使用<script type="math/tex">\text{HMAC}</script>来进行<script type="math/tex">\text{MAC}</script>的计算。假设所使用的<script type="math/tex">\text{MAC}</script>密钥为<code>123456</code>，<script type="math/tex">\text{HMAC}</script>能够通过如下代码进行计算：</p>
@@ -1074,10 +1074,10 @@ a.out
 
 import hmac
 import hashlib
-key=’123456’
-message=’lstcmd=1’
-mac = hmac.new(bytearray(key.encode(’utf-8’)),
-                msg=message.encode(’utf-8’, ’surrogateescape’),
+key=&#39;123456&#39;
+message=&#39;lstcmd=1&#39;
+mac = hmac.new(bytearray(key.encode(&#39;utf-8&#39;)),
+                msg=message.encode(&#39;utf-8&#39;, &#39;surrogateescape&#39;),
                 digestmod=hashlib.sha256).hexdigest()
 print(mac)
 </code></pre></div>
