@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-1" class="md-skip">
+        <a href="#0-seedlab20" class="md-skip">
           跳转至
         </a>
       
@@ -611,6 +611,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#0-seedlab20" class="md-nav__link">
+    0. SeedLab2.0环境准备
+  </a>
+  
+    <nav class="md-nav" aria-label="0. SeedLab2.0环境准备">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01" class="md-nav__link">
+    0.1 部署本次使用的服务器
+  </a>
+  
+    <nav class="md-nav" aria-label="0.1 部署本次使用的服务器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#011" class="md-nav__link">
+    0.1.1 配置虚拟机网络
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#012" class="md-nav__link">
+    0.1.2 下载对应资料
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-1" class="md-nav__link">
     1 任务1：发送请求来列出所有文件
   </a>
@@ -699,6 +739,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#0-seedlab20" class="md-nav__link">
+    0. SeedLab2.0环境准备
+  </a>
+  
+    <nav class="md-nav" aria-label="0. SeedLab2.0环境准备">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01" class="md-nav__link">
+    0.1 部署本次使用的服务器
+  </a>
+  
+    <nav class="md-nav" aria-label="0.1 部署本次使用的服务器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#011" class="md-nav__link">
+    0.1.1 配置虚拟机网络
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#012" class="md-nav__link">
+    0.1.2 下载对应资料
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-1" class="md-nav__link">
     1 任务1：发送请求来列出所有文件
   </a>
@@ -749,12 +829,127 @@
 
   <h1>实验步骤</h1>
 
+<h2 id="0-seedlab20">0. SeedLab2.0环境准备</h2>
+<p>如果是使用实验室的环境请忽略下面的内容，直接进入 0.1 部署本次使用的服务器</p>
+<p>使用VirtualBox-Windows版本，其下载地址https://download.virtualbox.org/virtualbox/6.1.38/VirtualBox-6.1.38-153438-Win.exe</p>
+<p>使用SeedUbuntu20.04作为运行环境，其下载参考https://seedsecuritylabs.org/labsetup.html，由于下载较慢，推荐提前下载或者使用第三方镜像.
+打开Virtualbox，安装虚拟机</p>
+<ul>
+<li>选择“新建”，对虚拟机进行命名，完成后点击“下一步”</li>
+<li>设置内存大小，可以设置为4096MB（不改也可以），完成后点击“下一步”</li>
+<li><strong>使用已有的虚拟硬盘文件</strong>，选择目录为下载好的<code>SEED-Ubuntu20.04.vdi</code>，完成后点击“创建”，完成虚拟机设置，启动即可</li>
+<li>虚拟机默认密码是<code>dees</code></li>
+</ul>
+<h3 id="01">0.1 部署本次使用的服务器</h3>
+<h4 id="011">0.1.1 配置虚拟机网络</h4>
+<p>打开实验室的VirtualBox，里面有已经安装好的Seed Ubuntu 20.04环境，如下图所示，如果网卡已配置双网卡即可忽略本步骤，否则需要配置双网卡。</p>
+<p><center><img src="../assets/3-1.png" width = 600></center></p>
+<p>根据下面的截图配置双网卡，配置完成后，Seed 虚拟机连接外网和 ssh连接都没有问题。</p>
+<p><center><img src="../assets/3-2.png" width = 600></center></p>
+<h4 id="012">0.1.2 下载对应资料</h4>
+<p>方式1：在虚拟机直接联网，从工具资料路径下 <a href="https://gitee.com/hitsz-cslab/cryptography-labs/tree/master/stupkt/lab3">https://gitee.com/hitsz-cslab/cryptography-labs/tree/master/stupkt/lab3</a> 下载 Labsetup.zip 和 code。
+方式2：在PC机上下载了Labsetup.zip 和 code，再传送到虚拟机中。 </p>
+<p>然后启动虚拟机，首先在当前目录下创建本次实验的文件夹</p>
+<p><div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~$ mkdir Crypto_Hash_Extension
+[09/25/22]seed@VM:~$ cd Crypto_Hash_Extension
+[09/25/22]seed@VM:~/Crypto_Hash_Extension$ 
+</code></pre></div>
+如果是在PC机上，可以通过MobaXterm连接虚拟机。 下图有部分是我自己的环境，所以ip可能不相同。</p>
+<p><center><img src="../assets/3-3.png" width = 600></center></p>
+<p><center><img src="../assets/3-4.png" width = 600></center></p>
+<p>连接后，需要将给出的code和下载的<code>Labsetup.zip</code>拖入创建好的文件夹Crypto_Hash_Extension，并解压该压缩包。</p>
+<p><center><img src="../assets/3-5.png" width = 600></center></p>
+<div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/Crypto_Hash_Extension$ unzip Labsetup.zip 
+Archive:  Labsetup.zip
+   creating: Labsetup/
+  inflating: Labsetup/docker-compose.yml  
+   creating: Labsetup/image_flask/
+   creating: Labsetup/image_flask/app/
+   creating: Labsetup/image_flask/app/LabHome/
+  inflating: Labsetup/image_flask/app/LabHome/key.txt  
+ extracting: Labsetup/image_flask/app/LabHome/secret.txt  
+   creating: Labsetup/image_flask/app/www/
+  inflating: Labsetup/image_flask/app/www/config.py  
+  inflating: Labsetup/image_flask/app/www/lab.py  
+   creating: Labsetup/image_flask/app/www/templates/
+  inflating: Labsetup/image_flask/app/www/templates/index.html  
+  inflating: Labsetup/image_flask/app/www/__init__.py  
+  inflating: Labsetup/image_flask/bashrc  
+  inflating: Labsetup/image_flask/Dockerfile
+</code></pre></div>
+<p><img alt="" src="../Hash-%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95.assets/1.PNG" /></p>
+<p>因为下载失败的原因，我在这里设置了docker国内镜像源</p>
+<div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo vi /etc/docker/daemon.json
+</code></pre></div>
+<p>写入如下内容，保存后退出</p>
+<div class="highlight"><pre><span></span><code>{
+        &quot;registry-mirrors&quot;: [
+                &quot;https://hub-mirror.c.163.com&quot;,
+                &quot;https://mirror.baidubce.com&quot;,
+                &quot;https://docker.mirrors.sjtug.sjtu.edu.cn&quot;
+        ]       
+} 
+</code></pre></div>
+<p>执行以下命令</p>
+<div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo systemctl daemon-reload
+[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo systemctl restart docker
+</code></pre></div>
+<p>之后创建容器</p>
+<div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/Crypto_Hash_Extension$ cd Labsetup/
+[09/25/22]seed@VM:~/.../Labsetup$ dcbuild
+Building web-server
+Step 1/4 : FROM handsonsecurity/seed-server:flask
+flask: Pulling from handsonsecurity/seed-server
+da7391352a9b: Pull complete
+14428a6d4bcd: Pull complete
+2c2d948710f2: Pull complete
+01ee2d1608cf: Pull complete
+9f40388d7765: Pull complete
+2828455a2ef1: Pull complete
+Digest: sha256:75d0de8a7f6b7230f235cfec1105d050f22f053b592f97fdd809dbf4c8c69c6c
+Status: Downloaded newer image for handsonsecurity/seed-server:flask
+ ---&gt; 384199adf332
+Step 2/4 : COPY app  /app
+ ---&gt; 93d402023264
+Step 3/4 : COPY bashrc /root/.bashrc
+ ---&gt; 9bc743d13f8f
+Step 4/4 : CMD cd /app &amp;&amp; FLASK_APP=/app/www flask run --host 0.0.0.0 --port 80 &amp;&amp; tail -f /dev/null
+ ---&gt; Running in cce21708ff1b
+Removing intermediate container cce21708ff1b
+ ---&gt; 5ea8a9e99385
+
+Successfully built 5ea8a9e99385
+Successfully tagged seed-image-flask-len-ext:latest
+</code></pre></div>
+<p>创建成功后，在<code>/etc/hosts</code>中绑定ip和域名，添加并保存</p>
+<div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo vi /etc/hosts
+</code></pre></div>
+<p><img alt="" src="../Hash-%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95.assets/2.PNG" /></p>
+<p>启动容器：</p>
+<div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/.../Labsetup$ dcup
+Creating network &quot;net-10.9.0.0&quot; with the default driver
+Creating www-10.9.0.80 ... done
+Attaching to www-10.9.0.80
+www-10.9.0.80 |  * Serving Flask app &quot;/app/www&quot;
+www-10.9.0.80 |  * Environment: production
+www-10.9.0.80 |    WARNING: This is a development server. Do not use it in a production deployment.
+www-10.9.0.80 |    Use a production WSGI server instead.
+www-10.9.0.80 |  * Debug mode: off
+www-10.9.0.80 |  * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+</code></pre></div>
+<p>将此终端挂着，打开另一个终端查看，本次实验所有的操作都不需要在docker中执行，只需要在虚拟机中执行即可：</p>
+<div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/Crypto_Hash_Extension$ dockps
+dbcd21ad6e6a  www-10.9.0.80
+</code></pre></div>
+<p>在虚拟机中使用浏览器访问：</p>
+<p><img alt="" src="../Hash-%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95.assets/3.PNG" /></p>
+<p>环境搭建完毕</p>
 <h2 id="1-1">1 任务1：发送请求来列出所有文件</h2>
-<p>在这个文件中，我们将向服务器发送一个合法请求，以此来了解服务器是怎么响应我们发送的请求的。我们想要发送的请求如下：</p>
+<p>在任务中，我们将向服务器发送一个合法请求，以此来了解服务器是怎么响应我们发送的请求的。我们想要发送的请求如下：</p>
 <div class="highlight"><pre><span></span><code>http://www.seedlab-hashlen.com/?myname=&lt;name&gt;&amp;uid=&lt;need-to-fill&gt;
 &amp;lstcmd=1&amp;mac=&lt;need-to-calculate&gt;
 </code></pre></div>
-<p>发送一个请求，除了要有自己的名字参数<code>myname</code>外，我们还需要填充两个参数<code>uid</code>和<code>mac</code>。其中你需要在<code>LabHome</code>目录下的 <code>key.txt</code>中挑选一个uid，这个文件包含一个列表，有着冒号分隔的uid和密钥，可以使用任何一个uid及其对应密钥。例如，可以使用uid<code>1001</code>及它所对应的密钥<code>123456</code>。</p>
+<p>发送一个请求，除了要有自己的名字参数<code>myname</code>外，我们还需要填充两个参数<code>uid</code>和<code>mac</code>。其中你需要在<code>/home/seed/HashLength/Crypto_Hash_Extension/image_flask/app/LabHome</code>目录下的 <code>key.txt</code>中挑选一个uid，这个文件包含一个列表，有着冒号分隔的uid和密钥，可以使用任何一个uid及其对应密钥。例如，可以使用uid<code>1001</code>及它所对应的密钥<code>123456</code>。</p>
 <p>缺少的第二个参数是<script type="math/tex">\text{MAC}</script>，该参数可以通过将密钥Key及请求R用冒号连接，然后进行计算得到，具体可以见下面的示例，uid<code>1001</code>所对应的key值是<code>123456</code>，请求的内容是<code>myname=JohnDoe&amp;uid=1001&amp;lstcmd=1</code>，连接后如下</p>
 <div class="highlight"><pre><span></span><code>Key:R = 123456:myname=JohnDoe&amp;uid=1001&amp;lstcmd=1
 </code></pre></div>
@@ -766,9 +961,10 @@
 <div class="highlight"><pre><span></span><code>http://www.seedlab-hashlen.com/?myname=JohnDoe&amp;uid=1001&amp;lstcmd=1
 &amp;mac=7d5f750f8b3203bd963d75217c980d139df5d0e50d19d6dfdb8a7de1f8520ce3
 </code></pre></div>
-<p>下图是修改myname = SEEDManual 对应访问网站的结果如下图所示，可见能够成功访问，并且列出了目录下的文件</p>
-<p><img alt="" src="../Hash-%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95.assets/4.PNG" /></p>
-<p><strong>任务1</strong>：请发送一个<code>download</code>命令到服务区，myname的信息修改为你自己的姓名拼音，并且记录你得到的响应内容</p>
+<p>下图是修改myname = suting 并且加上 download 命令对应访问网站的结果如下图所示，可见能够成功访问，并且列出了目录下的文件和打开了secret.txt的文件。</p>
+<p><a href="http://www.seedlab-hashlen.com/?myname=suting&amp;uid=1001&amp;lstcmd=1&amp;download=secret.txt&amp;mac=ecf920ce0392a2317ce32bf692c88bf106db77fc20e4f948b7fee6a133af84b5">http://www.seedlab-hashlen.com/?myname=suting&amp;uid=1001&amp;lstcmd=1&amp;download=secret.txt&amp;mac=ecf920ce0392a2317ce32bf692c88bf106db77fc20e4f948b7fee6a133af84b5</a></p>
+<p><center><img src="../assets/4-1.png" width = 600></center></p>
+<p><strong>任务1</strong>：参考上面的内容，请发送一个<code>download</code>命令到服务区，myname的信息修改为你自己的姓名拼音，并且记录你得到的响应内容</p>
 <h2 id="2-2padding">2 任务2：创建Padding</h2>
 <p>为了进行Hash长度扩展攻击，我们需要了解单向哈希函数的padding是如何计算的（padding就是填充）。SHA256的块大小是64字节，因此消息<script type="math/tex">\text{M}</script>在计算过程中将被填充为64字节的整数倍。按照<script type="math/tex">\text{RFC\;6234}</script>，SHA256的padding包括一个字节的<script type="math/tex">\text{0x80}</script>，接着是许多的<script type="math/tex">\text{0}</script>，最后是一个64bit（即8字节）的长度字段，长度字段中记录了消息<script type="math/tex">\text{M}</script>的bit数。</p>
 <p>假设原始消息为<script type="math/tex">\text{M="This is a test message"}</script>，其长度为22字节，因此其padding填充为<script type="math/tex">64-22=42</script>字节，这42字节中包括8字节的长度字段，该长度字段的值为<script type="math/tex">\text{22*8=176=0xB0}</script>。因此SHA256将使用以下填充padding后的内容进行计算：</p>
@@ -786,56 +982,15 @@
 <p><strong>任务2</strong>：你需要为以下消息创建对应padding，其中<code>&lt;key&gt;</code>和<code>&lt;uid&gt;</code>的实际内容应该从<code>LabHome/key.txt</code>文件中得到，myname依然用你自己的姓名：</p>
 <div class="highlight"><pre><span></span><code>&lt;key&gt;:myname=&lt;name&gt;&amp;uid=&lt;uid&gt;&amp;lstcmd=1
 </code></pre></div>
-<p>可以使用给出的compute_padding.py代码，大家打开代码看下具体内容,修改myname的值，了解padding的过程。然后执行下面的命令。
-./compute_padding.py</p>
+<p>可以使用给出的compute_padding.py代码，大家打开代码看下具体内容,修改myname的值，了解padding的过程。然后先给coompute_padding.py添加可执行权限，然后执行下面的命令。</p>
+<pre><code>chmod +x compute_padding.py
+./compute_padding.py
+</code></pre>
 <p>应该注意，在URL中，所有padding中的十六进制数字都需要由<code>\x</code>改为<code>%</code>。例如，之前padding中的<code>\x80</code>需要改为<code>%80</code>，之后在服务器端，URL中的编码数据将对应更改为二进制数字。以下是示例：</p>
 <div class="highlight"><pre><span></span><code>&quot;\x80\x00\x00\x99&quot; should be encoded as &quot;%80%00%00%99&quot;
 </code></pre></div>
 <h2 id="3-3">3 任务3：长度扩展攻击</h2>
 <p>在此任务中，我们将在不知道<script type="math/tex">\text{MAC}</script>密钥的情况下，为URL生成有效的<script type="math/tex">\text{MAC}</script>。假设我们知道有效请求<script type="math/tex">\text{R}</script>的<script type="math/tex">\text{MAC}</script>，还知道<script type="math/tex">\text{MAC}</script>密钥的大小，然后我们的工作是基于请求<script type="math/tex">\text{R}</script>构造一个新的请求，同时依然能计算得到新请求的有效<script type="math/tex">\text{MAC}</script>。</p>
-<p>给定原始消息<script type="math/tex">\text{M="This is a test message"}</script>及其<script type="math/tex">\text{MAC}</script>值，我们将在下面展示如何添加一段消息<script type="math/tex">\text{Extra message}</script>到填充后消息<script type="math/tex">\text{M}</script>的尾部，然后计算其<script type="math/tex">\text{MAC}</script>而不需要知道<script type="math/tex">\text{MAC}</script>密钥。</p>
-<div class="highlight"><pre><span></span><code>$ echo -n &quot;This is a test message&quot; | sha256sum
-6f3438001129a90c5b1637928bf38bf26e39e57c6e9511005682048bedbef906
-</code></pre></div>
-<p>下面的程序将用来计算新消息的<script type="math/tex">\text{MAC}</script>：</p>
-<div class="highlight"><pre><span></span><code>/* length_ext.c */
-#include &lt;stdio.h&gt;
-#include &lt;arpa/inet.h&gt;
-#include &lt;openssl/sha.h&gt;
-int main(int argc, const char *argv[])
-{
-    int i;
-    unsigned char buffer[SHA256_DIGEST_LENGTH];
-    SHA256_CTX c;
-
-    SHA256_Init(&amp;c);
-    for(i=0; i&lt;64; i++)
-        SHA256_Update(&amp;c, &quot;*&quot;, 1);
-
-    // MAC of the original message M (padded)
-    c.h[0] = htole32(0x6f343800);
-    c.h[1] = htole32(0x1129a90c);
-    c.h[2] = htole32(0x5b163792);
-    c.h[3] = htole32(0x8bf38bf2);
-    c.h[4] = htole32(0x6e39e57c);
-    c.h[5] = htole32(0x6e951100);
-    c.h[6] = htole32(0x5682048b);
-    c.h[7] = htole32(0xedbef906);
-
-    // Append additional message
-    SHA256_Update(&amp;c, &quot;Extra message&quot;, 13);
-    SHA256_Final(buffer, &amp;c);
-
-    for(i = 0; i &lt; 32; i++) {
-        printf(&quot;%02x&quot;, buffer[i]);
-    }
-    printf(&quot;\n&quot;);
-    return 0;
-}
-</code></pre></div>
-<p>可以使用如下命令编译该程序：</p>
-<div class="highlight"><pre><span></span><code>$ gcc length_ext.c -o length_ext -lcrypto
-</code></pre></div>
 <p><strong>任务3.1</strong>：你首先需要为下面的请求生成一个有效的<script type="math/tex">\text{MAC}</script>，其中<code>&lt;key&gt;</code>和<code>&lt;uid&gt;</code>的实际内容应该从<code>LabHome/key.txt</code>文件中得到：</p>
 <div class="highlight"><pre><span></span><code>http://www.seedlab-hashlen.com/?myname=&lt;name&gt;&amp;uid=&lt;uid&gt;
 &amp;lstcmd=1&amp;mac=&lt;mac&gt;
@@ -845,8 +1000,8 @@ int main(int argc, const char *argv[])
 &amp;lstcmd=1&lt;padding&gt;&amp;download=secret.txt&amp;mac=&lt;new-mac&gt;
 </code></pre></div>
 new-mac的生成，可以采用下面的方式，参考给出的代码，将里面初始值的信息换成填充前已经获取到的mac值的信息，如何分割成8个8位的信息，可以自己写代码也可手工完成。
-    <script type="math/tex"> gcc url_length_extension.c -lcrypto
-    </script> a.out</p>
+    gcc url_length_extension.c -lcrypto
+    a.out</p>
 <p>然后发送构造好的新请求到服务器，记录你收到的服务器响应，即你需要证明你得到了<code>secret.txt</code>文件的内容，以此来说明你完成了本次攻击。</p>
 <p><strong>任务3.2</strong>：发送构造好的新请求到服务器，记录收到的服务器响应并截图。</p>
 <h2 id="4-4hmac">4 任务4：使用HMAC来缓解长度扩展攻击</h2>
