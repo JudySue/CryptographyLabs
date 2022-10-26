@@ -1007,7 +1007,7 @@ dbcd21ad6e6a  www-10.9.0.80
 <div class="highlight"><pre><span></span><code>http://www.seedlab-hashlen.com/?myname=&lt;name&gt;&amp;uid=&lt;need-to-fill&gt;
 &amp;lstcmd=1&amp;mac=&lt;need-to-calculate&gt;
 </code></pre></div>
-<p>发送一个请求，除了要有自己的名字参数<code>myname</code>外，我们还需要填充两个参数<code>uid</code>和<code>mac</code>。其中你需要在<code>/home/seed/HashLength/Crypto_Hash_Extension/image_flask/app/LabHome</code>目录下的 <code>key.txt</code>中挑选一个uid，这个文件包含一个列表，有着冒号分隔的uid和密钥，可以使用任何一个uid及其对应密钥。例如，可以使用uid<code>1001</code>及它所对应的密钥<code>123456</code>。</p>
+<p>发送一个请求，除了要有自己的名字参数<code>myname</code>外，我们还需要填充两个参数<code>uid</code>和<code>mac</code>。其中你需要在<code>/home/seed/Crypto_Hash_Extension/Labsetup/image_flask/app/LabHome/</code>目录下的 <code>key.txt</code>中挑选一个uid，这个文件包含一个列表，有着冒号分隔的uid和密钥，可以使用任何一个uid及其对应密钥。例如，可以使用uid<code>1001</code>及它所对应的密钥<code>123456</code>。</p>
 <p>缺少的第二个参数是<script type="math/tex">\text{MAC}</script>，该参数可以通过将密钥Key及请求R用冒号连接，然后进行计算得到，具体可以见下面的示例，uid<code>1001</code>所对应的key值是<code>123456</code>，请求的内容是<code>myname=JohnDoe&amp;uid=1001&amp;lstcmd=1</code>，连接后如下</p>
 <div class="highlight"><pre><span></span><code>Key:R = 123456:myname=JohnDoe&amp;uid=1001&amp;lstcmd=1
 </code></pre></div>
@@ -1064,7 +1064,7 @@ a.out
 <p>然后发送构造好的新请求到服务器，记录你收到的服务器响应，即你需要证明你得到了<code>secret.txt</code>文件的内容，以此来说明你完成了本次攻击。</p>
 <p><strong>任务3.2</strong>：发送构造好的新请求到服务器，记录收到的服务器响应并截图。</p>
 <h2 id="4-4hmac">4 任务4：使用HMAC来缓解长度扩展攻击</h2>
-<p>到目前为止的实验内容中，我们已经了解到，通过连接密钥和消息然后进行计算得到<script type="math/tex">\text{MAC}</script>的方法是不安全的。在这个任务中，我们将修复这种错误，计算<script type="math/tex">\text{MAC}</script>的标准方法是使用<script type="math/tex">\text{HMAC}</script>。你应该修改服务器程序的<code>verify-mac()</code>函数，并使用Python的<code>hamc</code>模块包来计算<script type="math/tex">\text{MAC}</script>。其中<code>verify-mac()</code>函数在<code>lab.py</code>文件中。给定一个密钥和消息（都是字符串类型），可以如下计算<script type="math/tex">\text{HMAC}</script>值。</p>
+<p>到目前为止的实验内容中，我们已经了解到，通过连接密钥和消息然后进行计算得到<script type="math/tex">\text{MAC}</script>的方法是不安全的。在这个任务中，我们将修复这种错误，计算<script type="math/tex">\text{MAC}</script>的标准方法是使用<script type="math/tex">\text{HMAC}</script>。你应该修改服务器程序的<code>verify-mac()</code>函数，路径/home/seed/Crypto_Hash_Extension/Labsetup/image_flask/app/www/lab.py，并使用Python的<code>hamc</code>模块包来计算<script type="math/tex">\text{MAC}</script>。其中<code>verify-mac()</code>函数在<code>lab.py</code>文件中。给定一个密钥和消息（都是字符串类型），可以如下计算<script type="math/tex">\text{HMAC}</script>值。</p>
 <div class="highlight"><pre><span></span><code>real_mac = hmac.new(bytearray(key.encode(&#39;utf-8&#39;)),
             msg=message.encode(&#39;utf-8&#39;, &#39;surrogateescape&#39;),
             digestmod=hashlib.sha256).hexdigest()

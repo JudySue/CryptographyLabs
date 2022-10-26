@@ -177,7 +177,7 @@ http://www.seedlab-hashlen.com/?myname=<name>&uid=<need-to-fill>
 &lstcmd=1&mac=<need-to-calculate>
 ```
 
-发送一个请求，除了要有自己的名字参数`myname`外，我们还需要填充两个参数`uid`和`mac`。其中你需要在`/home/seed/HashLength/Crypto_Hash_Extension/image_flask/app/LabHome`目录下的 `key.txt`中挑选一个uid，这个文件包含一个列表，有着冒号分隔的uid和密钥，可以使用任何一个uid及其对应密钥。例如，可以使用uid`1001`及它所对应的密钥`123456`。
+发送一个请求，除了要有自己的名字参数`myname`外，我们还需要填充两个参数`uid`和`mac`。其中你需要在`/home/seed/Crypto_Hash_Extension/Labsetup/image_flask/app/LabHome/`目录下的 `key.txt`中挑选一个uid，这个文件包含一个列表，有着冒号分隔的uid和密钥，可以使用任何一个uid及其对应密钥。例如，可以使用uid`1001`及它所对应的密钥`123456`。
 
 缺少的第二个参数是$\text{MAC}$，该参数可以通过将密钥Key及请求R用冒号连接，然后进行计算得到，具体可以见下面的示例，uid`1001`所对应的key值是`123456`，请求的内容是`myname=JohnDoe&uid=1001&lstcmd=1`，连接后如下
 
@@ -280,7 +280,7 @@ new-mac的生成，可以采用下面的方式，参考给出的代码，将里�
 
 ## 4 任务4：使用HMAC来缓解长度扩展攻击
 
-到目前为止的实验内容中，我们已经了解到，通过连接密钥和消息然后进行计算得到$\text{MAC}$的方法是不安全的。在这个任务中，我们将修复这种错误，计算$\text{MAC}$的标准方法是使用$\text{HMAC}$。你应该修改服务器程序的`verify-mac()`函数，并使用Python的`hamc`模块包来计算$\text{MAC}$。其中`verify-mac()`函数在`lab.py`文件中。给定一个密钥和消息（都是字符串类型），可以如下计算$\text{HMAC}$值。
+到目前为止的实验内容中，我们已经了解到，通过连接密钥和消息然后进行计算得到$\text{MAC}$的方法是不安全的。在这个任务中，我们将修复这种错误，计算$\text{MAC}$的标准方法是使用$\text{HMAC}$。你应该修改服务器程序的`verify-mac()`函数，路径/home/seed/Crypto_Hash_Extension/Labsetup/image_flask/app/www/lab.py，并使用Python的`hamc`模块包来计算$\text{MAC}$。其中`verify-mac()`函数在`lab.py`文件中。给定一个密钥和消息（都是字符串类型），可以如下计算$\text{HMAC}$值。
 
 ```
 real_mac = hmac.new(bytearray(key.encode('utf-8')),
