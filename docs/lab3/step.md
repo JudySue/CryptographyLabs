@@ -110,7 +110,7 @@ Successfully tagged seed-image-flask-len-ext:latest
 ![](Hash-实验记录.assets/2.PNG)
 
 
-#### 创建容器解决办法
+#### 创建容器失败解决办法
 
 如果创建过程中，遇到下载失败的情况，可以在这里设置了docker国内镜像源，然后再重新  dcbuild
 
