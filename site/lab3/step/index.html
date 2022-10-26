@@ -1044,7 +1044,7 @@ dbcd21ad6e6a  www-10.9.0.80
 <pre><code>chmod +x compute_padding.py
 ./compute_padding.py
 </code></pre>
-<p>应该注意，在URL中，所有padding中的十六进制数字都需要由<code>\x</code>改为<code>%</code>。例如，之前padding中的<code>\x80</code>需要改为<code>%80</code>，之后在服务器端，URL中的编码数据将对应更改为二进制数字。以下是示例：</p>
+<p>这里不需要修改代码，关于<code>\x</code>改为<code>%</code>替换的内容，代码中已经给出来了。  自己编码的话应该注意，在URL中，所有padding中的十六进制数字都需要由<code>\x</code>改为<code>%</code>。例如，之前padding中的<code>\x80</code>需要改为<code>%80</code>，之后在服务器端，URL中的编码数据将对应更改为二进制数字。以下是示例：</p>
 <div class="highlight"><pre><span></span><code>&quot;\x80\x00\x00\x99&quot; should be encoded as &quot;%80%00%00%99&quot;
 </code></pre></div>
 <h2 id="3-3">3 任务3：长度扩展攻击</h2>

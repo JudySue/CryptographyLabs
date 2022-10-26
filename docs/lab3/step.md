@@ -244,7 +244,7 @@ http://www.seedlab-hashlen.com/?myname=suting&uid=1001&lstcmd=1&download=secret.
     ./compute_padding.py
 
 
-应该注意，在URL中，所有padding中的十六进制数字都需要由`\x`改为`%`。例如，之前padding中的`\x80`需要改为`%80`，之后在服务器端，URL中的编码数据将对应更改为二进制数字。以下是示例：
+这里不需要修改代码，关于`\x`改为`%`替换的内容，代码中已经给出来了。  自己编码的话应该注意，在URL中，所有padding中的十六进制数字都需要由`\x`改为`%`。例如，之前padding中的`\x80`需要改为`%80`，之后在服务器端，URL中的编码数据将对应更改为二进制数字。以下是示例：
 
 ```
 "\x80\x00\x00\x99" should be encoded as "%80%00%00%99"
