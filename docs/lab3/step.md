@@ -288,7 +288,7 @@ real_mac = hmac.new(bytearray(key.encode('utf-8')),
 			digestmod=hashlib.sha256).hexdigest()
 ```
 
-完成以上更改后，停止所有容器，并重新build它们，然后再次启动所有容器。只有这样，你所作的改变才会生效。之后，你应该重复任务1，需要注意的是，此次使用$\text{HMAC}$来进行$\text{MAC}$的计算。假设所使用的$\text{MAC}$密钥为`123456`，$\text{HMAC}$能够通过如下代码进行计算：
+完成以上更改后，停止所有容器，并重新build它们，然后再次启动所有容器。只有这样，你所作的改变才会生效。之后，你应该重复任务1，需要注意的是，此次使用$\text{HMAC}$来进行$\text{MAC}$的计算。假设所使用的$\text{MAC}$密钥为`123456`，$\text{HMAC}$能够通过如下代码进行计算,特别注意如下是一段代码，需要自己新建个py的文件把代码copy进去，另外请修改message信息：
 
 ```
 #!/bin/env python3
