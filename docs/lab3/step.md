@@ -101,15 +101,6 @@ Successfully built 5ea8a9e99385
 Successfully tagged seed-image-flask-len-ext:latest
 ```
 
-创建成功后，在`/etc/hosts`中绑定ip和域名，添加并保存
-
-```
-[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo vi /etc/hosts
-```
-
-![](Hash-实验记录.assets/2.PNG)
-
-
 #### 创建容器失败解决办法
 
 如果创建过程中，遇到下载失败的情况，可以在这里设置了docker国内镜像源，然后再重新  dcbuild
@@ -138,6 +129,16 @@ Successfully tagged seed-image-flask-len-ext:latest
 ```
 
 #### 启动容器：
+
+容器创建成功后，在`/etc/hosts`中绑定ip和域名，添加并保存（vi编辑命令插入信息按键盘 i 键在输入，保存先按键盘 Esc ，再依次按键 :wq 就可以保存了。），然后才能启动容器
+
+```
+[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo vi /etc/hosts
+```
+
+![](Hash-实验记录.assets/2.PNG)
+
+修改完上面的配置文件后，使用命令 dcup 启动容器
 
 ```
 [09/25/22]seed@VM:~/.../Labsetup$ dcup

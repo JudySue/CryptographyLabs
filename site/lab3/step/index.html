@@ -962,10 +962,6 @@ Removing intermediate container cce21708ff1b
 Successfully built 5ea8a9e99385
 Successfully tagged seed-image-flask-len-ext:latest
 </code></pre></div>
-<p>创建成功后，在<code>/etc/hosts</code>中绑定ip和域名，添加并保存</p>
-<div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo vi /etc/hosts
-</code></pre></div>
-<p><img alt="" src="../Hash-%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95.assets/2.PNG" /></p>
 <h4 id="_2">创建容器失败解决办法</h4>
 <p>如果创建过程中，遇到下载失败的情况，可以在这里设置了docker国内镜像源，然后再重新  dcbuild</p>
 <div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo vi /etc/docker/daemon.json
@@ -984,6 +980,11 @@ Successfully tagged seed-image-flask-len-ext:latest
 [09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo systemctl restart docker
 </code></pre></div>
 <h4 id="_3">启动容器：</h4>
+<p>容器创建成功后，在<code>/etc/hosts</code>中绑定ip和域名，添加并保存（vi编辑命令插入信息按键盘 i 键在输入，保存先按键盘 Esc ，再依次按键 :wq 就可以保存了。），然后才能启动容器</p>
+<div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/Crypto_Hash_Extension$ sudo vi /etc/hosts
+</code></pre></div>
+<p><img alt="" src="../Hash-%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95.assets/2.PNG" /></p>
+<p>修改完上面的配置文件后，使用命令 dcup 启动容器</p>
 <div class="highlight"><pre><span></span><code>[09/25/22]seed@VM:~/.../Labsetup$ dcup
 Creating network &quot;net-10.9.0.0&quot; with the default driver
 Creating www-10.9.0.80 ... done
