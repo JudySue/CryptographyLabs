@@ -981,22 +981,23 @@ Alice 采用 自己的私钥对消息 m 签名， Alice 将 m 和签名发送给
 </ol>
 <h3 id="22">2.2 签名算法</h3>
 <ol>
-<li>给定待签消息 𝑚 ，选择随机整数 𝑘∈<script type="math/tex">𝑍_(𝑝−1)^∗</script> ， 满足 gcd(k, p-1) = 1;</li>
+<li>给定待签消息 𝑚 ，选择随机整数 𝑘∈<script type="math/tex">𝑍_{𝑝−1}^∗</script> ， 满足 gcd(k, p-1) = 1;</li>
 <li>计算 H(𝑚)</li>
-<li>计算 <script type="math/tex">𝑟=𝑔^𝑘  mod ⁡𝑝</script>， <script type="math/tex">𝑠=𝑘^(−1) (𝐻(𝑚)−𝑥𝑟)mod⁡ (𝑝−1)</script>
+<li>计算 <script type="math/tex">𝑟=𝑔^𝑘  mod ⁡𝑝</script>， <script type="math/tex">𝑠=𝑘^{−1} (𝐻(𝑚)−𝑥𝑟)mod⁡ (𝑝−1)</script>
 </li>
 <li>定义 <script type="math/tex">𝑆𝑖𝑔(𝑚,𝑘)=(𝑟,𝑠)</script>， 将 m 和 (r, s) 发送给对方。</li>
 </ol>
 <h3 id="23">2.3 验证算法</h3>
 <ol>
 <li>接收方收到 m 和 (r, s)， 计算 H(𝑚);</li>
-<li>验证：𝑣𝑒𝑟(𝑚,(𝑟,𝑠),𝑦)=真⇔<script type="math/tex">𝑦^𝑟 𝑟^𝑠≡𝑔^(𝐻(𝑚))  mod⁡ 𝑝</script>
+<li>验证：𝑣𝑒𝑟(𝑚,(𝑟,𝑠),𝑦)=真⇔<script type="math/tex">𝑦^𝑟 𝑟^𝑠≡𝑔^{𝐻(𝑚)}  mod⁡ 𝑝</script>
 </li>
 </ol>
 <p>签名的正确性说明：</p>
-<p>因为有 𝑠=𝑘^(−1) (𝐻(𝑚)−𝑥𝑟)mod⁡(𝑝−1)</p>
+<p>因为有 <script type="math/tex">𝑠=𝑘^{−1} (𝐻(𝑚)−𝑥𝑟)mod⁡(𝑝−1)</script>
+</p>
 <p>所以有 r𝑥+𝑠𝑘=𝐻(𝑚) mod⁡(𝑝−1)</p>
-<p>所以 <script type="math/tex">𝑦^𝑟 𝑟^𝑠≡𝑔^xr 𝑔^sk mod⁡𝑝 ≡𝑔^(xr+sk)mod⁡𝑝≡𝑔^(𝐻(𝑚))  mod⁡𝑝</script>
+<p>所以 <script type="math/tex">𝑦^𝑟 𝑟^𝑠≡𝑔^{xr} 𝑔^{sk} mod⁡𝑝 ≡𝑔^{xr+sk}mod⁡𝑝≡𝑔^{𝐻(𝑚)}  mod⁡𝑝</script>
 </p>
 
               
