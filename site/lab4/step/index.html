@@ -843,21 +843,23 @@
 
 <h3 id="1">1 密钥生成算法步骤如下：</h3>
 <ol>
-<li>选取大素数 p , g∈𝑍_𝑝^∗ 是一个本原元。 p 和 g 公开； </li>
-<li>随机选取整数 x , 1 &lt; x &lt; p-1，计算 <script type="math/tex">y =  g^x mod p</script>。 </li>
-<li>公钥为 y ，私钥为 x。  </li>
+<li>选取大素数 <script type="math/tex">p</script> , <script type="math/tex">g</script>∈<script type="math/tex">𝑍_𝑝^∗</script> 是一个原根。 <script type="math/tex">p</script> 和 <script type="math/tex">g</script> 公开； </li>
+<li>随机选取整数 <script type="math/tex">x</script> , <script type="math/tex">1 < x < p-1</script>，计算 <script type="math/tex">y =  g^x mod p</script>。 </li>
+<li>公钥为 <script type="math/tex">{p,g,y}</script>，私钥为 <script type="math/tex">x</script>。  </li>
 </ol>
 <h3 id="2">2 签名算法</h3>
 <ol>
-<li>给定待签消息 𝑚 ，选择随机整数 𝑘∈𝑍_(𝑝−1)^∗ ， 满足 gcd(k, p-1) = 1;</li>
-<li>计算 H(𝑚), 本次实验采用 SHA(256), 可以直接调用接口。</li>
-<li>计算 𝑟=𝑔^𝑘  mod ⁡𝑝 ， 𝑠=𝑘^(−1) (𝐻(𝑚)−𝑥𝑟)mod⁡〖 (〗 𝑝−1)</li>
-<li>定义𝑆𝑖𝑔(𝑚,𝑘)=(𝑟,𝑠)， 将 m 和 (r, s) 发送给对方。</li>
+<li>给定待签消息 <script type="math/tex">𝑚 ，选择随机整数 </script>𝑘<script type="math/tex">∈</script>𝑍_{𝑝−1}^∗<script type="math/tex"> ， 满足 </script>gcd(k, p-1) = 1$;</li>
+<li>计算 <script type="math/tex">H(𝑚)</script>, 本次实验可以采用SHA256，如果使用其他 Hash 算法，请在实验报告模板中说明。</li>
+<li>计算 <script type="math/tex">𝑟=𝑔^𝑘  mod ⁡𝑝</script>， <script type="math/tex">𝑠=𝑘^{−1} (𝐻(𝑚)−𝑥𝑟)mod⁡ (𝑝−1)</script>
+</li>
+<li>定义 <script type="math/tex">𝑆𝑖𝑔(𝑚,𝑘)=(𝑟,𝑠)</script>， 将 <script type="math/tex">m</script> 和 <script type="math/tex">(r, s)</script> 发送给对方。</li>
 </ol>
 <h3 id="3">3 验证算法</h3>
 <ol>
-<li>接收方收到 m 和 (r, s)， 计算 H(𝑚);</li>
-<li>验证：𝑣𝑒𝑟(𝑚,(𝑟,𝑠),𝑦)=真⇔𝑦^𝑟 𝑟<sup>𝑠≡𝑔</sup>(𝐻(𝑚))  mod⁡ 𝑝</li>
+<li>接收方收到 <script type="math/tex">m</script> 和 <script type="math/tex">(r, s)</script>， 计算 <script type="math/tex">H(𝑚)</script>;</li>
+<li>验证：<script type="math/tex">𝑣𝑒𝑟(𝑚,(𝑟,𝑠),𝑦)=真</script>⇔<script type="math/tex">𝑦^𝑟 𝑟^𝑠≡𝑔^{𝐻(𝑚)}  mod⁡ 𝑝</script>
+</li>
 </ol>
 <div class="admonition info">
 <p class="admonition-title">说明 <img alt="✨" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2728.svg" title=":sparkles:" /></p>
