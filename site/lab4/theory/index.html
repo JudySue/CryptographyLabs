@@ -749,10 +749,10 @@
       
         <li class="md-nav__item">
   <a href="#2-elgamal" class="md-nav__link">
-    2 Elgamal 数字签名
+    2 ElGamal 数字签名
   </a>
   
-    <nav class="md-nav" aria-label="2 Elgamal 数字签名">
+    <nav class="md-nav" aria-label="2 ElGamal 数字签名">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -893,10 +893,10 @@
       
         <li class="md-nav__item">
   <a href="#2-elgamal" class="md-nav__link">
-    2 Elgamal 数字签名
+    2 ElGamal 数字签名
   </a>
   
-    <nav class="md-nav" aria-label="2 Elgamal 数字签名">
+    <nav class="md-nav" aria-label="2 ElGamal 数字签名">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -960,41 +960,44 @@ Alice 采用 Bob 的公钥对信息加密， Alice 将密文发送给 Bob ； Bo
 Alice 采用 自己的私钥对消息 m 签名， Alice 将 m 和签名发送给 Bob ； Bob 收到 m 和签名后， Bob 采用 Alice 的公钥验证签名的有效性。</p>
 <h3 id="12">1.2 数字签名与消息认证</h3>
 <p>消息认证：
-收发方没有厉害冲突时，消息认证用于防止第三者的破坏。收方能够验证消息发送者身份或者发送者发送的消息内容是否被篡改。</p>
-<p>数字签名：当收发双发存在厉害冲突时，消息认证技术无法解决收发双方之间的纠纷，必须要采用数字签名技术。 数字签名能确定消息来源的真实性，能够保证实体身份的真实性，也能够保证不可否认性。</p>
+收发方没有利害冲突时，消息认证用于防止第三者的破坏。收方能够验证消息发送者身份或者发送者发送的消息内容是否被篡改。</p>
+<p>数字签名：当收发双发存在利害冲突时，消息认证技术无法解决收发双方之间的纠纷，必须要采用数字签名技术。 数字签名能确定消息来源的真实性，能够保证实体身份的真实性，也能够保证不可否认性。</p>
 <h3 id="13">1.3 数字签名的分类</h3>
 <p>按照消息是否被压缩分类：分为对整体消息进行签名和对压缩的消息进行签名两类。</p>
-<p>按照消息/签名的对应关系分类：分为确定性签名和随机化数字签名两类。确定性签名是消息与签名一一对应，对统一消息的签名永远不会变化，比如RSA；随机化数字签名是对同一消息的签名是变化的，本次实验所采用的 ElGamal 数字签名算法就是随机化的。</p>
+<p>按照消息/签名的对应关系分类：分为确定性签名和随机化数字签名两类。确定性签名是消息与签名一一对应，对同一消息的签名永远不会变化，比如RSA；随机化数字签名是对同一消息的签名是变化的，本次实验所采用的 ElGamal 数字签名算法就是随机化的。</p>
 <h3 id="14-3">1.4 数字签名方案的3个算法</h3>
 <ol>
 <li>密钥生成：产生用户的公私钥</li>
 <li>签名算法：产生消息的签名</li>
-<li>验证算法：验收消息的签名是否是合法</li>
+<li>验证算法：验证消息的签名是否是合法</li>
 </ol>
-<h2 id="2-elgamal">2 Elgamal 数字签名</h2>
-<p>1985年， EIGamal 提出了一个基于离散对数问题的签名方案，后来称为 EIGamal 数字签名方案。1991年该数字签名方案的变形被美国国家标准局 (NIST) 确定为数字签名标准 (DSS) 。</p>
+<h2 id="2-elgamal">2 ElGamal 数字签名</h2>
+<p>1985年， EIGamal 提出了一个基于离散对数问题的签名方案，后来称为 ElGamal 数字签名方案。1991年该数字签名方案的变形被美国国家标准局 (NIST) 确定为数字签名标准 (DSS) 。</p>
 <h3 id="21">2.1 密钥生成算法步骤如下：</h3>
 <ol>
-<li>选取大素数 p , g∈𝑍_𝑝^∗ 是一个本原元。 p 和 g 公开； </li>
+<li>选取大素数 p , g∈<script type="math/tex">𝑍_𝑝^∗</script> 是一个原根。 p 和 g 公开； </li>
 <li>随机选取整数 x , 1 &lt; x &lt; p-1，计算 <script type="math/tex">y =  g^x mod p</script>。 </li>
-<li>公钥为 y ，私钥为 x。  </li>
+<li>公钥为 {p,g,y} ，私钥为 x。  </li>
 </ol>
 <h3 id="22">2.2 签名算法</h3>
 <ol>
-<li>给定待签消息 𝑚 ，选择随机整数 𝑘∈𝑍_(𝑝−1)^∗ ， 满足 gcd(k, p-1) = 1;</li>
+<li>给定待签消息 𝑚 ，选择随机整数 𝑘∈<script type="math/tex">𝑍_(𝑝−1)^∗</script> ， 满足 gcd(k, p-1) = 1;</li>
 <li>计算 H(𝑚)</li>
-<li>计算 𝑟=𝑔^𝑘  mod ⁡𝑝 ， 𝑠=𝑘^(−1) (𝐻(𝑚)−𝑥𝑟)mod⁡〖 (〗 𝑝−1)</li>
-<li>定义𝑆𝑖𝑔(𝑚,𝑘)=(𝑟,𝑠)， 将 m 和 (r, s) 发送给对方。</li>
+<li>计算 <script type="math/tex">𝑟=𝑔^𝑘  mod ⁡𝑝</script>， <script type="math/tex">𝑠=𝑘^(−1) (𝐻(𝑚)−𝑥𝑟)mod⁡ (𝑝−1)</script>
+</li>
+<li>定义 <script type="math/tex">𝑆𝑖𝑔(𝑚,𝑘)=(𝑟,𝑠)</script>， 将 m 和 (r, s) 发送给对方。</li>
 </ol>
 <h3 id="23">2.3 验证算法</h3>
 <ol>
 <li>接收方收到 m 和 (r, s)， 计算 H(𝑚);</li>
-<li>验证：𝑣𝑒𝑟(𝑚,(𝑟,𝑠),𝑦)=真⇔𝑦^𝑟 𝑟<sup>𝑠≡𝑔</sup>(𝐻(𝑚))  mod⁡ 𝑝</li>
+<li>验证：𝑣𝑒𝑟(𝑚,(𝑟,𝑠),𝑦)=真⇔<script type="math/tex">𝑦^𝑟 𝑟^𝑠≡𝑔^(𝐻(𝑚))  mod⁡ 𝑝</script>
+</li>
 </ol>
 <p>签名的正确性说明：</p>
-<p>因为有 𝑠=𝑘^(−1) (𝐻(𝑚)−𝑥𝑟)mod⁡〖 (〗 𝑝−1)</p>
-<p>所以有 r𝑥+𝑠𝑘=𝐻(𝑚) mod⁡〖 (〗 𝑝−1)</p>
-<p>所以 𝑦^𝑟 𝑟<sup>𝑠≡𝑔</sup>xr  〖𝑔^sk mod〗⁡𝑝 ≡𝑔^(xr+sk)  mod⁡𝑝≡𝑔^(𝐻(𝑚))  mod⁡𝑝</p>
+<p>因为有 𝑠=𝑘^(−1) (𝐻(𝑚)−𝑥𝑟)mod⁡(𝑝−1)</p>
+<p>所以有 r𝑥+𝑠𝑘=𝐻(𝑚) mod⁡(𝑝−1)</p>
+<p>所以 <script type="math/tex">𝑦^𝑟 𝑟^𝑠≡𝑔^xr 𝑔^sk mod⁡𝑝 ≡𝑔^(xr+sk)mod⁡𝑝≡𝑔^(𝐻(𝑚))  mod⁡𝑝</script>
+</p>
 
               
             </article>
