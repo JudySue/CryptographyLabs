@@ -154,7 +154,7 @@ www-10.9.0.80 |  * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
 
 ```
 
- 将此终端挂着，打开另一个终端查看，本次实验所有的操作都不需要在docker中执行，只需要在虚拟机中执行即可：
+ **上面的终端一直挂着是正常现象** 将此终端挂着，打开另一个终端查看，本次实验所有的操作都不需要在docker中执行，只需要在虚拟机中执行即可：
 
 ```
 [09/25/22]seed@VM:~/Crypto_Hash_Extension$ dockps
@@ -200,7 +200,7 @@ http://www.seedlab-hashlen.com/?myname=JohnDoe&uid=1001&lstcmd=1
 &mac=7d5f750f8b3203bd963d75217c980d139df5d0e50d19d6dfdb8a7de1f8520ce3
 ```
 
-下图是修改myname = suting 并且加上 download 命令 download=secret.txt 对应访问网站的结果如下图所示，可见能够成功访问，并且列出了目录下的文件和打开了secret.txt的文件。
+下图是修改 myname = suting 并且加上 download 命令 download=secret.txt 对应访问网站的结果如下图所示，可见能够成功访问，并且列出了目录下的文件和打开了secret.txt的文件。
 
 http://www.seedlab-hashlen.com/?myname=suting&uid=1001&lstcmd=1&download=secret.txt&mac=ecf920ce0392a2317ce32bf692c88bf106db77fc20e4f948b7fee6a133af84b5
 
@@ -209,11 +209,11 @@ http://www.seedlab-hashlen.com/?myname=suting&uid=1001&lstcmd=1&download=secret.
 
 
 
-**任务1**：参考上面的内容，请发送一个`download`命令到服务区，myname的信息修改为你自己的姓名拼音，并且记录你得到的响应内容
+**任务1**：参考上面的内容，请发送一个`download`命令到服务区，myname 的信息修改为你自己的姓名拼音，并且记录你得到的响应内容
 
 ## 2 任务2：创建Padding
 
-为了进行Hash长度扩展攻击，我们需要了解单向哈希函数的padding是如何计算的（padding就是填充）。SHA256的块大小是64字节，因此消息$\text{M}$在计算过程中将被填充为64字节的整数倍。按照$\text{RFC\;6234}$，SHA256的padding包括一个字节的$\text{0x80}$，接着是许多的$\text{0}$，最后是一个64bit（即8字节）的长度字段，长度字段中记录了消息$\text{M}$的bit数。
+为了进行Hash长度扩展攻击，我们需要了解单向哈希函数的padding是如何计算的（padding就是填充）。SHA256的块大小是64字节，因此消息$\text{M}$在计算过程中将被填充为64字节的整数倍。按照$\text{RFC\;6234}$，SHA256 的padding包括一个字节的 $\text{0x80}$，接着是许多的 $\text{0}$ ，最后是一个64bit（即8字节）的长度字段，长度字段中记录了消息 $\text{M}$ 的bit数。
 
 假设原始消息为$\text{M="This is a test message"}$，其长度为22字节，因此其padding填充为$64-22=42$字节，这42字节中包括8字节的长度字段，该长度字段的值为$\text{22*8=176=0xB0}$。因此SHA256将使用以下填充padding后的内容进行计算：
 
@@ -239,13 +239,13 @@ http://www.seedlab-hashlen.com/?myname=suting&uid=1001&lstcmd=1&download=secret.
 <key>:myname=<name>&uid=<uid>&lstcmd=1
 ```
 
-可以使用给出的compute_padding.py代码，大家打开代码看下具体内容,修改myname的值，了解padding的过程。然后先给coompute_padding.py添加可执行权限，然后执行下面的命令。
+可以使用给出的 compute_padding.py 代码，大家打开代码看下具体内容,修改 myname 的值，了解 padding 的过程。然后先给 coompute_padding.py 添加可执行权限，然后执行下面的命令。
 
     chmod +x compute_padding.py
     ./compute_padding.py
 
 
-这里不需要修改代码，关于`\x`改为`%`替换的内容，代码中已经给出来了。  自己编码的话应该注意，在URL中，所有padding中的十六进制数字都需要由`\x`改为`%`。例如，之前padding中的`\x80`需要改为`%80`，之后在服务器端，URL中的编码数据将对应更改为二进制数字。以下是示例：
+这里不需要修改代码，关于`\x`改为`%`替换的内容，代码中已经给出来了。  自己编码的话应该注意，在URL中，所有 padding 中的十六进制数字都需要由`\x`改为`%`。例如，之前padding中的`\x80`需要改为`%80`，之后在服务器端，URL中的编码数据将对应更改为二进制数字。以下是示例：
 
 ```
 "\x80\x00\x00\x99" should be encoded as "%80%00%00%99"
@@ -253,11 +253,11 @@ http://www.seedlab-hashlen.com/?myname=suting&uid=1001&lstcmd=1&download=secret.
 
 ## 3 任务3：长度扩展攻击
 
-在此任务中，我们将在不知道$\text{MAC}$密钥的情况下，为URL生成有效的$\text{MAC}$。假设我们知道有效请求$\text{R}$的$\text{MAC}$，还知道$\text{MAC}$密钥的大小，然后我们的工作是基于请求$\text{R}$构造一个新的请求，同时依然能计算得到新请求的有效$\text{MAC}$。
+在此任务中，我们将在不知道 $\text{MAC}$ 密钥的情况下，为URL生成有效的$\text{MAC}$。假设我们知道有效请求 $\text{R}$的$\text{MAC}$，还知道$\text{MAC}$密钥的大小，然后我们的工作是基于请求 $\text{R}$ 构造一个新的请求，同时依然能计算得到新请求的有效$ \text{MAC}$。
 
 
 
-**任务3.1**：你首先需要为下面的请求生成一个有效的$\text{MAC}$，其中`<key>`和`<uid>`的实际内容应该从`LabHome/key.txt`文件中得到：
+**任务3.1**：你首先需要为下面的请求生成一个有效的 $\text{MAC}$，其中`<key>`和`<uid>`的实际内容应该从`LabHome/key.txt`文件中得到：
 
 ```
 http://www.seedlab-hashlen.com/?myname=<name>&uid=<uid>

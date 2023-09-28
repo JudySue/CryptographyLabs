@@ -11,4 +11,4 @@
 
 
 !!! warning "作业提交 :calendar:"
-    作业提交 <font color = red>**Deadline**</font>：<font color = purple>**下次上课前提交**</font>。
+    作业提交 <font color = red>**Deadline**</font>：<font color = purple>**一周内提交**</font>。
