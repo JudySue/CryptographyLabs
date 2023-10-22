@@ -13,7 +13,7 @@
     
     
       
-        <title>Overview - 密码学基础（2023秋季） | 哈工大（深圳）</title>
+        <title>实验概述 - 密码学基础（2023秋季） | 哈工大（深圳）</title>
       
     
     
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              实验概述
             
           </span>
         </div>
@@ -224,6 +224,24 @@
     <li class="md-tabs__item">
       <a href="../../lab3/overview/" class="md-tabs__link">
         实验3：Hash长度扩展攻击
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        实验4：ElGamal数字签名
       </a>
     </li>
   
@@ -605,6 +623,142 @@
   
 
     
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          实验4：ElGamal数字签名
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="实验4：ElGamal数字签名" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          实验4：ElGamal数字签名
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          实验概述
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        实验概述
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    实验目的
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    实验内容
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../theory/" class="md-nav__link">
+        实验原理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../step/" class="md-nav__link">
+        实验步骤
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../submit/" class="md-nav__link">
+        验收与提交
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -657,7 +811,7 @@
                 
 
 
-  <h1>Overview</h1>
+  <h1>实验概述</h1>
 
 <h2 id="_1">实验目的</h2>
 <p>ElGamal 公钥密码算法是在密码协议中有着重要应用的一类公钥密码算法，其安全性是基于有限域上离散对数学问题的难解性。 ElGamal 既能用于加密也能用于数字签名，本次实验我们只做数字签名部分。</p>
@@ -679,8 +833,8 @@
 <li>需要将公钥（p, g, y）和私钥 x 以及每次使用的随机数 k 打印输出。</li>
 <li>用学号作为消息 m ，并打印输出随机生成两次不同的 k 的签名信息和签名验证的结果。</li>
 <li>验证签名时，假设消息 m 被篡改的情况，要输出验证签名不通过的信息。</li>
+<li>Hash 算法使用 SHA256 对消息 m 进行 Hash 运算。</li>
 </ol>
-<p>补充说明：Hash 算法不是必须的，如果不对消息 m 进行 Hash 运算， 那么算法使用中就可以将 H(m) 换成 m。</p>
 
               
             </article>
@@ -690,6 +844,41 @@
       </main>
       
         <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../../lab3/submit/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 验收与提交" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              验收与提交
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../theory/" class="md-footer__link md-footer__link--next" aria-label="下一页: 实验原理" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              实验原理
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
